@@ -1,0 +1,22 @@
+{
+  "name": "alike-website",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev --port=3020",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "dependencies": {
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "components": "workspace:*",
+    "nuxt": "^3.11.2",
+    "postcss": "^8.4.38",
+    "style": "workspace:*",
+    "tailwindcss": "^3.4.3",
+    "vue": "^3.4.21",
+    "vue-router": "^4.3.0"
+  }
+}

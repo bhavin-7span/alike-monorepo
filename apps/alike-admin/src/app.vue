@@ -1,0 +1,15 @@
+<template>
+  <div>
+    <h1>Alike Admin 2</h1>
+    <Header></Header>
+
+  </div>
+</template>
+<script>
+import Header from "components/header.vue"
+export default {
+  components: {
+    Header
+  }
+}
+</script>
