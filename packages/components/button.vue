@@ -1,5 +1,5 @@
 <template>
-  <button class="p-1 border bg-grey-100 text-grey-900 rounded">
+  <button :class="buttonClass">
     {{ label }}
   </button>
 </template>
