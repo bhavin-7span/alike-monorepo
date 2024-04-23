@@ -6,11 +6,18 @@
   "scripts": {
     "dev": "vite --port=3010",
     "build": "vite build",
+    "build:dev": "vite build --mode development",
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.9.11",
+    "@rollup/plugin-graphql": "^2.0.4",
     "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@vue/apollo-composable": "^4.0.2",
     "components": "workspace:*",
+    "graphql": "^16.8.1",
+    "graphql-tag": "^2.12.6",
+    "lodash-es": "^4.17.21",
     "pinia": "^2.1.7",
     "postcss": "^8.4.38",
     "style": "workspace:*",

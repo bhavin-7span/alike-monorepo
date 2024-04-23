@@ -1,0 +1,112 @@
+query products($filter: ProductAttributeFilterInput) {
+  products(filter: $filter) {
+    items {
+      id
+      name
+      sku
+      description {
+        html
+      }
+      short_description {
+        html
+      }
+      meta_description
+      image {
+        url
+      }
+      media_gallery {
+        url
+        disabled
+        __typename
+      }
+      __typename
+      ... on ConfigurableProduct {
+        configurable_product_options_selection {
+          options_available_for_selection {
+            option_value_uids
+            attribute_code
+          }
+          variant {
+            id
+            uid
+            name
+            sku
+            short_description {
+              html
+            }
+            description {
+              html
+            }
+            dtpass_max_attraction
+            dtpass_max_adult
+            dtpass_max_child
+            hotel_discount_info
+            price_range {
+              minimum_price {
+                final_price {
+                  value
+                  currency
+                }
+              }
+            }
+          }
+        }
+        configurable_options {
+          id
+          uid
+          attribute_id
+          label
+          position
+          use_default
+          attribute_code
+          values {
+            value_index
+            uid
+            label
+            use_default_value
+            swatch_data {
+              value
+            }
+          }
+          product_id
+        }
+        variants {
+          product {
+            id
+            uid
+            name
+            sku
+            short_description {
+              html
+            }
+            description {
+              html
+            }
+            dtpass_max_attraction
+            dtpass_max_adult
+            dtpass_max_child
+            hotel_discount_info
+            pass_adult_price
+            pass_child_price
+            adult_price
+            child_price
+            pass_display_price
+            price_range {
+              minimum_price {
+                final_price {
+                  value
+                  currency
+                }
+              }
+            }
+          }
+          attributes {
+            label
+            code
+            value_index
+          }
+        }
+      }
+    }
+  }
+}
