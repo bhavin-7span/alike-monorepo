@@ -1,7 +1,5 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "style/src/tailwind.css";
 
-body h1{
-    background-color:red !important;
-}
+/* @tailwind base;
+@tailwind components;
+@tailwind utilities; */
