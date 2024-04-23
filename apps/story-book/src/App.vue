@@ -1,7 +1,7 @@
 <script setup></script>
 <template>
   <section>
-    <h1 class="note">
+    <h1 class="note text-2xl">
       If you are trying to run story book then run command : pnpm run story:dev
     </h1>
   </section>
