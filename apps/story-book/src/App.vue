@@ -1,6 +1,6 @@
 <script setup></script>
 <template>
-  <section>
+  <section class="h-screen flex items-center justify-center">
     <h1 class="note text-2xl">
       If you are trying to run story book then run command : pnpm run story:dev
     </h1>
