@@ -1,6 +1,6 @@
 <template>
   <header class="py-4">
-    <div class="container">
+    <div class="container mx-auto">
       <div class="flex items-center justify-between">
         <a href="">
           <img

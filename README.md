@@ -6,6 +6,7 @@
 - Node Version - **18 & above**
 
 ## Setup Project
+
 `git clone https://github.com/bhavin-7span/alike-monorepo.git`
 
 `pnpm install`
@@ -15,11 +16,14 @@
 - Storybook
 
 `pnpm run story`
+
 <!-- `pnpm --filter story-book run story:dev`-->
 
--  Alike Website
+- Alike Website
 
-`pnpm --filter alike-website run dev`
+`pnpm run website`
+
+<!-- `pnpm --filter alike-website run dev` -->
 
 - Alike Admin
 
@@ -27,7 +31,7 @@
 
 ## Branch Structure
 
-| Deployment | Branch |
-| ------------ | ------------ |
-| Production | main |
+| Deployment  | Branch      |
+| ----------- | ----------- |
+| Production  | main        |
 | Development | development |
