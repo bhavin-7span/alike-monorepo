@@ -12,13 +12,18 @@
     "story:preview": "histoire preview"
   },
   "dependencies": {
+    "style": "workspace:*",
+    "components": "workspace:*",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
   "devDependencies": {
     "@histoire/plugin-vue": "^0.17.17",
     "@vitejs/plugin-vue": "^5.0.4",
+    "autoprefixer": "^10.4.19",
     "histoire": "^0.17.17",
+    "postcss": "^8.4.38",
+    "tailwindcss": "^3.4.3",
     "vite": "^5.2.8"
   }
 }
