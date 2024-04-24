@@ -1,7 +1,5 @@
 const alikeTailwind = require("style/src/tailwind.js");
 
-console.log("CHECK==>",alikeTailwind);
-
 module.exports = {
   ...alikeTailwind,
   content: [

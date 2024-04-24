@@ -72,6 +72,9 @@ importers:
 
   apps/alike-website:
     dependencies:
+      '@graphql':
+        specifier: workspace:*
+        version: link:../../packages/graph
       '@nuxtjs/apollo':
         specifier: 5.0.0-alpha.14
         version: 5.0.0-alpha.14(rollup@4.16.3)(vue@3.4.24)
@@ -138,6 +141,8 @@ importers:
         version: 5.2.10(@types/node@20.12.7)(terser@5.30.4)
 
   packages/components: {}
+
+  packages/graph: {}
 
   packages/icons: {}
 
