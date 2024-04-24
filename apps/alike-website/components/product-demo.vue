@@ -1,5 +1,5 @@
 <template>
-  <Section name="hero">
+  <Section name="product-demo">
     <p>Product Detail:</p>
     <pre>{{ productsData }}</pre>
   </Section>

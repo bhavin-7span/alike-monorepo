@@ -1,24 +1,13 @@
 <template>
-  <Section name="curated-packages bg-primary-50">
-    <h2 class="text-center text-6xl font-bold">
-      Bundle up with savings : cozy winter offers now LIVE!
-    </h2>
-    <div class="" v-for="(type, index) in selections" :key="index">
-      {{ type }}
-    </div>
+  <Section
+    name=""
+    class="bg-primary-50"
+    _class="flex items-center justify-center flex-col"
+  >
+    <AWHeading2 class="text-center max-w-sm md:max-w-xl">
+      Curated holiday packages for all
+    </AWHeading2>
+    <div class="mt-6 md:mt-14">Curated Packages Cards With Swiper</div>
   </Section>
 </template>
-<script setup>
-const selections = [
-  {
-    id: 1,
-    label: "Traveller",
-    image: "",
-  },
-  {
-    id: 2,
-    label: "Creator",
-    image: "",
-  },
-];
-</script>
+<script setup></script>

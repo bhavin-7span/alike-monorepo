@@ -3,6 +3,13 @@
     <HomeCover />
     <HomeOffers />
     <HomeCuratedPackages />
+    <HomeMouseHijack />
+    <HomeCities />
+    <HomeMouseHijack />
+    <HomePlanTrip />
+    <HomeTestimonials />
+    <HomeMouseHijack />
+    <HomeMediaOutlets />
     <!-- <ProductDemo /> -->
   </div>
 </template>

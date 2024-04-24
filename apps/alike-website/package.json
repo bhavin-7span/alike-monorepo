@@ -10,13 +10,14 @@
     "postinstall": "nuxt prepare"
   },
   "dependencies": {
+    "@graphql": "workspace:*",
     "@nuxtjs/apollo": "5.0.0-alpha.14",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "components": "workspace:*",
-    "@graphql": "workspace:*",
     "nuxt": "^3.11.2",
     "postcss": "^8.4.38",
     "style": "workspace:*",
+    "swiper": "^11.1.1",
     "tailwindcss": "^3.4.3",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
