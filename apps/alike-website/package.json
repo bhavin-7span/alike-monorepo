@@ -13,6 +13,7 @@
     "@nuxtjs/apollo": "5.0.0-alpha.14",
     "@tailwindcss/aspect-ratio": "^0.4.2",
     "components": "workspace:*",
+    "@graphql": "workspace:*",
     "nuxt": "^3.11.2",
     "postcss": "^8.4.38",
     "style": "workspace:*",
