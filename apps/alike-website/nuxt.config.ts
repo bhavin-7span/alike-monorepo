@@ -4,19 +4,18 @@ import env from "./env";
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/css/style.css"],
+  plugins: [{ src: "~/plugins/components.js" }],
   postcss: {
     plugins: {
       tailwindcss: {},
       autoprefixer: {},
     },
   },
-  modules: [
-    "@nuxtjs/apollo"
-  ],
+  modules: ["@nuxtjs/apollo"],
   runtimeConfig: {
     public: {
       ...env,
     },
   },
-  apollo
-})
+  apollo,
+});

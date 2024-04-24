@@ -1,5 +1,5 @@
 <template>
-  <Section name="curated-packages">
+  <Section name="curated-packages bg-primary-50">
     <h2 class="text-center text-6xl font-bold">
       Bundle up with savings : cozy winter offers now LIVE!
     </h2>
@@ -9,7 +9,6 @@
   </Section>
 </template>
 <script setup>
-import Section from "components/common/section.vue";
 const selections = [
   {
     id: 1,

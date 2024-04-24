@@ -1,6 +1,7 @@
 <template>
   <div class="index-page">
     <HomeCover />
+    <HomeOffers />
     <HomeCuratedPackages />
     <!-- <ProductDemo /> -->
   </div>

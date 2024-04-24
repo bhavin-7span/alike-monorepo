@@ -6,7 +6,6 @@
 </template>
 
 <script setup>
-import Section from "components/common/section.vue";
 import products from "../../../packages/graph/products.gql";
 const productsData = ref(null);
 const { data, errors } = await useAsyncQuery({
