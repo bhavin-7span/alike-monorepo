@@ -5,25 +5,26 @@ const vepaarColors = require("./colors.json");
 module.exports = {
   theme: {
     fontSize: {
-      xs: ['12px', '18px'],
-      sm: ['14px','24px'],
-      base: ['16px','24px'],
-      lg: ['20px','28px'],
-      xl: ['24px','32px'],
-      '3xl': ['28px','32px'],
-      '4xl': ['32px','38px'],
-      '5xl': ['36px','42px'],
-      '6xl': ['48px','56px'],
-      '7xl': ['60px','68px'],
-      '8xl': ['72px','80px'],
+      xs: ["12px", "18px"],
+      sm: ["14px", "24px"],
+      base: ["16px", "24px"],
+      lg: ["20px", "28px"],
+      xl: ["24px", "32px"],
+      "3xl": ["28px", "32px"],
+      "4xl": ["32px", "38px"],
+      "5xl": ["36px", "42px"],
+      "6xl": ["48px", "56px"],
+      "7xl": ["60px", "68px"],
+      "8xl": ["72px", "80px"],
     },
     borderRadius: {
-      'none': '0',
-      'xs':'16px',
-      'sm':'24px',
-      'md':'32px',
-      'lg':'40px',
-      'xl':'48px',
+      none: "0",
+      xs: "16px",
+      sm: "24px",
+      md: "32px",
+      lg: "40px",
+      xl: "48px",
+      full: "9999px",
     },
     colors: {
       ...vepaarColors,
@@ -42,12 +43,11 @@ module.exports = {
     fontFamily: {
       display: ["Inter", ...defaultTheme.fontFamily.sans],
       body: ["Inter", ...defaultTheme.fontFamily.sans],
+      "rethink-sans": ['"Rethink Sans"', "sans-serif"],
     },
     boxShadow: {
-      'xs':'0px 10px 50px 10px rgba(194, 194, 194, 0.15)'
-    }
+      xs: "0px 10px 50px 10px rgba(194, 194, 194, 0.15)",
+    },
   },
-  plugins: [
-    require("@tailwindcss/aspect-ratio")
-  ]
+  plugins: [require("@tailwindcss/aspect-ratio")],
 };

@@ -1,22 +1,20 @@
 <template>
   <div>
     <h1>Alike Admin 3</h1>
-    <Header></Header>
     <pre>{{ data }}</pre>
   </div>
 </template>
 <script>
-import Header from "components/header.vue"
 import { gqlQuery } from "@/composables/gqlQuery.js";
-import products from "../../../packages/graph/products.gql";
+import products from "@graph/products.gql";
 export default {
   data() {
     return {
-      data: null
-    }
+      data: null,
+    };
   },
   components: {
-    Header
+    Header,
   },
   created() {
     this.getOrderDetail();
@@ -24,11 +22,11 @@ export default {
   methods: {
     async getOrderDetail() {
       const res = await gqlQuery(products, {
-        search:'',
-        filter: { sku: { eq: "OneAbuDhabi" } }
+        search: "",
+        filter: { sku: { eq: "OneAbuDhabi" } },
       });
       this.data = res.data.products.items;
     },
   },
-}
+};
 </script>

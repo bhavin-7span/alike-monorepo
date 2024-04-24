@@ -1,14 +1,17 @@
 <template>
   <section
-    class="container py-16 md:py-28 mx-auto"
+    class="py-16 md:py-28"
     :class="`section-${name}`"
     :id="`section-${name}`"
   >
-    <slot />
+    <div class="container mx-auto" :class="_class">
+      <slot />
+    </div>
   </section>
 </template>
 <script setup>
 const props = defineProps({
   name: String,
+  _class: String,
 });
 </script>
