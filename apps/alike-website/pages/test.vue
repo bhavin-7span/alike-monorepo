@@ -34,6 +34,19 @@
         </ClientOnly>
       </div>
     </AwSection>
+    <AwSection
+      name="test-page"
+      class="py-16 md:py-28"
+      _class="flex items-center justify-center flex-col border-4 border-black py-10"
+    >
+      <AwHeading2 class="text-center max-w-sm md:max-w-3xl">
+        Language Switcher
+      </AwHeading2>
+
+      <div class="mt-6 md:mt-14">
+        <LangSwitch />
+      </div>
+    </AwSection>
   </div>
 </template>
 <script setup>

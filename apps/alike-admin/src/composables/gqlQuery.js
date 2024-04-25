@@ -2,17 +2,6 @@ import gql from "graphql-tag";
 import { useQuery, useMutation } from "@vue/apollo-composable";
 import { authToken } from "./auth-token";
 import { getLanguage } from "@/composables/index.js";
-// Get Cookie
-// function getCookie(name) {
-//   const cookies = document.cookie.split(";");
-//   for (let i = 0; i < cookies.length; i++) {
-//     const cookie = cookies[i].trim();
-//     if (cookie.startsWith(name + "=")) {
-//       return cookie.substring(name.length + 1, cookie.length);
-//     }
-//   }
-//   return null;
-// }
 
 // Query Function
 export const gqlQuery = async (rawQuery, variable = null, header = null) => {
@@ -29,7 +18,6 @@ export const gqlQuery = async (rawQuery, variable = null, header = null) => {
           headers: {
             Authorization: token ? "Bearer " + token : undefined,
             store: `abudhabi_${lang}`,
-            // store: "alike",
             ...header,
           },
         },
