@@ -1,8 +1,8 @@
 <template>
-  <Section name="product-demo">
+  <AwSection name="product-demo" class="py-16 md:py-28">
     <p>Product Detail:</p>
     <pre>{{ productsData }}</pre>
-  </Section>
+  </AwSection>
 </template>
 
 <script setup>

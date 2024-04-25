@@ -1,38 +1,40 @@
 <template>
-  <Section
-    name="test-page"
-    class=""
-    _class="flex items-center justify-center flex-col border-4 border-black py-10"
-  >
-    <AWHeading2 class="text-center max-w-sm md:max-w-3xl">
-      Test Page
-    </AWHeading2>
+  <div class="test-page">
+    <AwSection
+      name="test-page"
+      class="py-16 md:py-28"
+      _class="flex items-center justify-center flex-col border-4 border-black py-10"
+    >
+      <AwHeading2 class="text-center max-w-sm md:max-w-3xl">
+        Carousel Demo
+      </AwHeading2>
 
-    <div class="mt-6 md:mt-14">
-      <ClientOnly>
-        <Swiper
-          :spaceBetween="20"
-          :pagination="{
-            clickable: true,
-          }"
-          :autoplay="{
-            delay: 500,
-            disableOnInteraction: false,
-          }"
-          :modules="modules"
-          class="mySwiper"
-        >
-          <SwiperSlide v-for="(img, index) in sliderImages" :key="index">
-            <img
-              :src="img.url"
-              class="h-72 object-contain object-center rounded-lg w-full"
-              alt="image"
-            />
-          </SwiperSlide>
-        </Swiper>
-      </ClientOnly>
-    </div>
-  </Section>
+      <div class="mt-6 md:mt-14">
+        <ClientOnly>
+          <Swiper
+            :spaceBetween="20"
+            :pagination="{
+              clickable: true,
+            }"
+            :autoplay="{
+              delay: 500,
+              disableOnInteraction: false,
+            }"
+            :modules="modules"
+            class="mySwiper"
+          >
+            <SwiperSlide v-for="(img, index) in sliderImages" :key="index">
+              <img
+                :src="img.url"
+                class="h-72 object-contain object-center rounded-lg w-full"
+                alt="image"
+              />
+            </SwiperSlide>
+          </Swiper>
+        </ClientOnly>
+      </div>
+    </AwSection>
+  </div>
 </template>
 <script setup>
 import { ref } from "vue";
@@ -42,7 +44,6 @@ import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const swiperInstance = ref();
 const modules = [Pagination, Autoplay];
 const sliderImages = [
   {
@@ -93,7 +94,6 @@ const sliderImages = [
   font-size: 18px;
   background: #fff;
 
-  /* Center slide text vertically */
   display: flex;
   justify-content: center;
   align-items: center;

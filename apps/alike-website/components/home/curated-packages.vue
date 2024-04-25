@@ -1,13 +1,13 @@
 <template>
-  <Section
-    name=""
-    class="bg-primary-50"
+  <AwSection
+    name="curated-packages"
+    class="bg-primary-50 py-16 md:py-28"
     _class="flex items-center justify-center flex-col"
   >
-    <AWHeading2 class="text-center max-w-sm md:max-w-xl">
+    <AwHeading2 class="text-center max-w-sm md:max-w-xl">
       Curated holiday packages for all
-    </AWHeading2>
+    </AwHeading2>
     <div class="mt-6 md:mt-14">Curated Packages Cards With Swiper</div>
-  </Section>
+  </AwSection>
 </template>
 <script setup></script>

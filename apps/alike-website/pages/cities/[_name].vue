@@ -1,4 +1,6 @@
 <template>
-  <Section name="city-page"> {{ $route.params }} City Page </Section>
+  <AwSection name="city-page" class="py-16 md:py-28">
+    {{ $route.params }} City Page
+  </AwSection>
 </template>
 <script setup></script>
