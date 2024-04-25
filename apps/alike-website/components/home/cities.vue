@@ -12,7 +12,8 @@
         <div
           v-for="(city, i) in cities"
           :key="i"
-          class="city-card overflow-hidden group relative"
+          class="city-card overflow-hidden group relative flex items-center justify-center"
+          @click="openCityPage(city?.name)"
         >
           <div
             class="w-[267px] h-[356px] group-hover:brightness-50"
@@ -20,14 +21,12 @@
               background-image: url('https://source.unsplash.com/featured/300x201');
               background-size: cover;
             "
+          ></div>
+          <div
+            class="hidden group-hover:flex absolute text items-center justify-center h-full w-full text-white text-4xl font-bold"
           >
-            <div
-              class="hidden group-hover:flex absolute text items-center justify-center h-full w-full text-white text-4xl font-bold"
-            >
-              {{ city.name }}
-            </div>
+            {{ city.name }}
           </div>
-          <!-- <img scr="https://source.unsplash.com/featured/267x356" /> -->
         </div>
       </div>
     </div>
@@ -58,6 +57,10 @@ const cities = [
   { name: "Lehbab" },
   { name: "Al Meryal" },
 ];
+
+const openCityPage = (name) => {
+  console.log("Opening City Page : ", name);
+};
 </script>
 <style scoped>
 /* Set radius for even iterations */
