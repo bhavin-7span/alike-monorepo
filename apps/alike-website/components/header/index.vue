@@ -18,6 +18,8 @@
           >
             {{ link.name }}
           </nuxt-link>
+          <IconArrowDown class="hover:text-primary-500"/>
+          <IconSearch class="hover:text-primary-500"/>
         </div>
       </div>
     </div>
