@@ -8,7 +8,7 @@
       Bundle up with savings : cozy winter offers now LIVE!
     </AwHeading2>
     <!-- <div class="mt-6 md:mt-14">Winter Offer Cards With Swiper</div> -->
-    <div class="mt-6 md:mt-14 relative">
+    <div class="mt-6 md:mt-14 relative w-full overflow-hidden">
       <!-- :pagination="{  }" -->
       <Swiper
         :slidesPerView="1"
@@ -36,7 +36,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 const modules = [Pagination, Autoplay];
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .swiper {
   width: 100%;
   height: 100%;

@@ -6,10 +6,12 @@
   >
     <AwHeading2 class="text-center"> Plan your trip with Alike </AwHeading2>
     <div class="mt-6 md:mt-14">Trip Plan Advice 4 Card</div>
-    <button
-      class="border-primary-500 border px-6 py-4 text-primary-500 rounded-full md:mt-16"
+    <NuxtLink
+      to="/trip-stories"
+      class="py-4 px-6 rounded-full border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-primary-50 hover:text-white flex gap-1 items-center"
     >
-      Plan a Trip
-    </button>
+      <span>Plan a Trip</span>
+      <AwIconArrowRight />
+    </NuxtLink>
   </AwSection>
 </template>

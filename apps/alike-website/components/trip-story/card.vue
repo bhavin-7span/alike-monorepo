@@ -1,5 +1,5 @@
 <template>
     <div class="trip-story-card">
-        Trip Story Card
+        Card
     </div>
 </template>
