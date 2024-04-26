@@ -5,8 +5,8 @@ const vepaarColors = require("./colors.json");
 module.exports = {
   theme: {
     fontSize: {
-      xs: ["12px", "18px"],
-      sm: ["14px", "24px"],
+      xs: ["12px", "16px"],
+      sm: ["14px", "18px"],
       base: ["16px", "24px"],
       lg: ["20px", "28px"],
       xl: ["24px", "32px"],

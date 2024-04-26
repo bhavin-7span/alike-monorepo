@@ -4,9 +4,9 @@
     class=""
     _class="flex items-center justify-center flex-col border-4 border-black py-10"
   >
-    <AWHeading2 class="text-center max-w-sm md:max-w-3xl">
+    <AwHeading2 class="text-center max-w-sm md:max-w-3xl">
       Test Page
-    </AWHeading2>
+    </AwHeading2>
 
     <div class="mt-6 md:mt-14">
       <ClientOnly>

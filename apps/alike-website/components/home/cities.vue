@@ -4,9 +4,9 @@
     class="overflow-hidden"
     _class="flex items-center justify-center flex-col"
   >
-    <AWHeading2 class="text-center max-w-sm md:max-w-3xl">
+    <AwHeading2 class="text-center max-w-sm md:max-w-3xl">
       Discover lively cities around the world.
-    </AWHeading2>
+    </AwHeading2>
     <div class="mt-6 md:mt-14">
       <div class="flex items-center w-full gap-6 transition-all duration-400">
         <div
