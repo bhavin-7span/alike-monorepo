@@ -1,6 +1,6 @@
 <template>
   <header class="fixed z-50 inset-x-0 top-0">
-    <div class="relative py-4 bg-white z-50">
+    <div class="relative py-4 bg-white z-40">
       <div class="container mx-auto">
         <div class="flex items-center justify-between">
           <a href="">
@@ -37,6 +37,7 @@
   </header>
 </template>
 <script setup>
+const route = useRoute();
 const navLinks = ref([
   {
     name: "Explore",
@@ -57,6 +58,12 @@ const navLinks = ref([
 
 const slideMenu = ref(false);
 const activeSlideMenu = ref(null);
+
+watch(() => route.fullPath, () => {
+  activeSlideMenu.value = false;
+  slideMenu.value = false;
+});
+
 const dropMenu = (name) => {
   if (slideMenu.value == false && activeSlideMenu.value == null) {
     slideMenu.value = true;
@@ -71,20 +78,20 @@ const dropMenu = (name) => {
 </script>
 <style>
 .mega-menu{
-  height: calc(100vh - 84px);
+  height: 100vh;
   transform-origin: top;
-  transition: transform .4s ease-in-out;
+  transition: transform 0.8s ease-in-out;
   overflow: hidden;
   z-index: 10;
   background-color: rgba(0,0,0,0.5);
 }
 
 .slide-fade-enter-active {
-  transition: all 0.3s ease-out;
+  transition: all 0.8s ease-out;
 }
 
 .slide-fade-leave-active {
-  transition: all 0.3s cubic-bezier(1, 0.5, 0.8, 1);
+  transition: all 0.8s cubic-bezier(1, 0.5, 0.8, 1);
 }
 
 .slide-fade-enter-from,

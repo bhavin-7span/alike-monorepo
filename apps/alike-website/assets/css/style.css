@@ -1,1 +1,9 @@
 @import "style/src/tailwind.css";
+
+.mt-18{
+    margin-top:72px;
+}
+
+.top-18{
+    top:72px;
+}

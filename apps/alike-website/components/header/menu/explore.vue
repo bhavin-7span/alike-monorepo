@@ -16,13 +16,14 @@
         <div class="flex-1">
             <HeaderMenuCities v-if="isActive == 'cities'"/>
             <HeaderMenuExperiences v-if="isActive == 'experiences'"/>
-            <HeaderMenuHotel v-if="isActive == 'hotel'"/>
-            <HeaderMenuSim v-if="isActive == 'esim'"/>
-            <HeaderMenuTravelPasses v-if="isActive == 'travel-passes'"/>
+            <HeaderMenuCommon v-if="isActive == 'hotel'" title="Hotels" :data="hotels" />
+            <HeaderMenuCommon v-if="isActive == 'esim'" title="eSIM" :data="eSim" />
+            <HeaderMenuCommon v-if="isActive == 'travel-passes'" title="Travel Passes" :data="travelPasses" />
         </div>
     </div>
 </template>
 <script setup>
+import { hotels,eSim,travelPasses } from '~/data/menu/common.js'
 const exploreCategory = ref(
     [
         {

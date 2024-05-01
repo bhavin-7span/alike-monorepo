@@ -1,8 +1,8 @@
 <template>
     <transition name="slide-fade">
-      <div v-if="slideMenu" @click="onClickOutside" class="mega-menu absolute top-20 inset-x-0 bg-white">
+      <div v-if="slideMenu" @click="onClickOutside" class="mega-menu absolute top-18 inset-x-0 bg-white">
         <div class="bg-white p-10" @click.stop >
-          <div class="max-w-5xl mx-auto">
+          <div class="max-w-6xl mx-auto">
             <HeaderMenuExplore v-if="activeMenu == 'Explore'"/>
             <HeaderMenuTrips v-if="activeMenu == 'Trips'"/>
           </div>
