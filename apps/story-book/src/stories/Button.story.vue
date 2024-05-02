@@ -5,13 +5,20 @@
       :theme="state.theme"
       :type="state.type"
       :size="state.size"
+      :is-loading="state.loading"
+      :icon-after="state.iconAfter"
+      icon="AwIconArrowRight"
     />
     <template #controls>
-      <div>
-        <HstSelect v-model="state.size" title="Size" :options="sizes" />
-        <HstSelect v-model="state.type" title="Color" :options="types" />
-        <HstSelect v-model="state.theme" title="Theme" :options="themes" />
-      </div>
+      <ControlGroup>
+        <template #props>
+          <HstSelect v-model="state.size" title="Size" :options="sizes" />
+          <HstSelect v-model="state.type" title="Color" :options="types" />
+          <HstSelect v-model="state.theme" title="Theme" :options="themes" />
+          <HstCheckbox v-model="state.loading" title="Loading" />
+          <HstCheckbox v-model="state.iconAfter" title="Icon After" />
+        </template>
+      </ControlGroup>
     </template>
   </Story>
 </template>
@@ -23,6 +30,8 @@ const state = reactive({
   type: "primary",
   theme: "solid",
   size: "md",
+  loading: false,
+  iconAfter: false,
 });
 
 const sizes = ["md", "sm"];

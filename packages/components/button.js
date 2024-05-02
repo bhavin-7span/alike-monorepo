@@ -21,7 +21,7 @@ export const button = cva(["font-medium", "w-fit", "rounded-full"], {
   compoundVariants: [
     // Adding click active effect for all button variants
     {
-      type: ["primary", "secondary", "grey"],
+      type: ["primary", "secondary", "grey", "black"],
       theme: ["solid", "outlined", "muted"],
       class: "active:bg-opacity-80",
     },
