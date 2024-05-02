@@ -1,31 +1,25 @@
 <template>
-  <button :class="buttonClass">
+  <button :class="buttonClasses">
     {{ label }}
   </button>
 </template>
 <script setup>
-import { computed } from "vue";
+import { computed, defineProps } from "vue";
+import { button } from "./button.js";
 
 const props = defineProps({
-  label: {
-    type: String,
-    default: "Button",
-  },
-  variant: {
-    type: String,
-    default: "default",
-  },
+  label: String,
+  type: String,
+  size: String,
+  theme: String,
 });
 
-const buttonClass = computed(() => {
-  if (props.variant == "default") {
-    return "p-1 border bg-grey-100 text-grey-900 rounded";
-  } else if (props.variant == "info") {
-    return "p-1 border bg-info-100 text-info-900";
-  } else if (props.variant == "danger") {
-    return "p-1 border bg-danger-100 text-danger-900";
-  } else if (props.variant == "warning") {
-    return "p-1 border bg-warning-100 text-warning-900";
-  }
+const buttonClasses = computed(() => {
+  console.log(props);
+  return button({
+    type: props.type,
+    size: props.size,
+    theme: props.theme,
+  });
 });
 </script>
