@@ -12,8 +12,9 @@
     "story:preview": "histoire preview"
   },
   "dependencies": {
-    "style": "workspace:*",
     "components": "workspace:*",
+    "icons": "workspace:*",
+    "style": "workspace:*",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },

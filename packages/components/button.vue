@@ -1,6 +1,7 @@
 <template>
   <button :class="buttonClasses">
-    {{ label }}
+    <AwIconLoading />
+    <slot name="default">{{ label }}</slot>
   </button>
 </template>
 <script setup>
@@ -12,6 +13,15 @@ const props = defineProps({
   type: String,
   size: String,
   theme: String,
+  icon: String,
+  isLoading: {
+    type: Boolean,
+    default: false,
+  },
+  iconAfter: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const buttonClasses = computed(() => {

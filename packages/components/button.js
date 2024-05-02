@@ -9,7 +9,7 @@ export const button = cva(["font-medium", "w-fit", "rounded-full"], {
       black: ["bg-black"],
     },
     size: {
-      sm: ["text-sm", "py-2", "px-3"],
+      sm: ["text-sm", "py-2", "px-4"],
       md: ["text-base", "py-4", "px-6"],
     },
     theme: {
@@ -19,7 +19,7 @@ export const button = cva(["font-medium", "w-fit", "rounded-full"], {
     },
   },
   compoundVariants: [
-    // Adding click Effect for all button variants
+    // Adding click active effect for all button variants
     {
       type: ["primary", "secondary", "grey"],
       theme: ["solid", "outlined", "muted"],
@@ -68,12 +68,12 @@ export const button = cva(["font-medium", "w-fit", "rounded-full"], {
     {
       type: "black",
       theme: "outlined",
-      class: "hover:bg-opacity-50  border-grey-500",
+      class: "border-black hover:bg-black hover:text-white",
     },
     {
       type: "black",
       theme: "muted",
-      class: "bg-grey-200 text-grey-500 hover:bg-grey-300 hover:text-grey-600",
+      class: "bg-grey-300 text-grey-500 hover:bg-grey-400 hover:text-black",
     },
   ],
   defaultVariants: {

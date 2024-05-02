@@ -8,6 +8,7 @@ import CurrencyEuro from "./icons/currency-euro.vue";
 import CurrencyGbp from "./icons/currency-gbp.vue";
 import CurrencyInr from "./icons/currency-inr.vue";
 import CurrencyUsd from "./icons/currency-usd.vue";
+import Loading from "./icons/loading.vue";
 
 export default {
   ArrowDown,
@@ -19,4 +20,5 @@ export default {
   CurrencyGbp,
   CurrencyInr,
   CurrencyUsd,
+  Loading,
 };
