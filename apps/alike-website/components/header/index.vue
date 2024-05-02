@@ -30,17 +30,34 @@
             </template>
           </div>
 
-          <button
-            @click="openSearchMenu()"
-            class="bg-grey-100 rounded-full flex items-center justify-center"
-          >
-            <p class="text-base px-4 py-3 text-grey-500">
-              Places to go, Things to do, hotels...
-            </p>
-            <div class="m-1 p-2 rounded-full bg-black text-white">
-              <AwIconSearch class="text-xl" />
-            </div>
-          </button>
+          <div class="flex items-center gap-2 justify-center">
+            <button
+              @click="openSearchMenu()"
+              class="bg-grey-100 rounded-full flex items-center justify-center"
+            >
+              <p class="text-base px-4 py-3 pr-14 text-grey-500">
+                Places to go, Things to do, hotels...
+              </p>
+              <div class="m-1 p-2 rounded-full bg-black text-white">
+                <AwIconSearch class="text-xl" />
+              </div>
+            </button>
+
+            <button class="nav-btn">
+              <AwIconAiLab class="h-5" />
+              <p>AI Lab</p>
+            </button>
+
+            <button class="nav-btn">
+              <AwIconCurrencyInr class="h-5" />
+              <p>INR</p>
+            </button>
+
+            <button class="nav-btn">
+              <AwIconAiLab class="h-5" />
+              <p>IN</p>
+            </button>
+          </div>
         </div>
       </div>
     </div>
@@ -126,5 +143,8 @@ function openSearchMenu() {
 .slide-fade-leave-to {
   transform: translateY(-100%);
   opacity: 0;
+}
+.nav-btn {
+  @apply py-3 px-4 flex items-center gap-2 bg-grey-100 hover:bg-grey-200 rounded-full font-semibold;
 }
 </style>
