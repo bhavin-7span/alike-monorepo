@@ -1,5 +1,6 @@
 <template>
-  <button
+  <component
+    :is="tag"
     :class="{
       [buttonClasses]: true,
       'flex-row-reverse': iconAfter,
@@ -14,7 +15,7 @@
       />
     </slot>
     <slot v-if="shape != 'circle'" name="default">{{ label }}</slot>
-  </button>
+  </component>
 </template>
 <script setup>
 import { computed, defineProps } from "vue";
@@ -33,6 +34,10 @@ const props = defineProps({
   theme: String,
   icon: String,
   shape: String,
+  tag: {
+    type: String,
+    default: "button",
+  },
   isLoading: {
     type: Boolean,
     default: false,
