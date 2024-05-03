@@ -3,8 +3,10 @@
     <Button
       label="Button Label"
       icon="AwIconCurrencyInr"
-      target="_black"
       :theme="state.theme"
+      :tag="state.tag"
+      :href="state.href"
+      :to="state.to"
       :type="state.type"
       :size="state.size"
       :is-loading="state.loading"
@@ -22,6 +24,9 @@
           <HstCheckbox v-model="state.loading" title="Loading" />
           <HstCheckbox v-model="state.iconAfter" title="Icon After" />
           <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstText v-model="state.tag" title="tag" />
+          <HstText v-model="state.href" title="href" />
+          <HstText v-model="state.to" title="to" />
         </template>
       </ControlGroup>
     </template>
@@ -39,6 +44,9 @@ const state = reactive({
   loading: false,
   iconAfter: false,
   disabled: false,
+  tag: "button",
+  href: "",
+  to: "",
 });
 
 const sizes = ["md", "sm"];
@@ -56,15 +64,16 @@ const shapes = ["rounded", "circle"];
 <docs lang="md">
 ## Props
 
-| Name      | Type            | Default Value | Description                                      |
-| --------- | --------------- | ------------- | ------------------------------------------------ |
-| label     | `String`        |               | label text.                                      |
-| tag       | `String`        | `button`      | tag name like button, a, nuxt-link, router-link  |
-| icon      | `String`        |               | Enter the icon name.                             |
-| isLoading | `Boolean`       | false         | Toggle Loading state of button                   |
-| href      | `String`        |               | Use button as anchor tag                         |
-| to        | `String,Object` |               | Use button as router-link or nuxt-link component |
-| disabled  | `Boolean`       | false         | to disables the button                           |
+| Name       | Type            | Default Value | Description                                                             |
+| ---------- | --------------- | ------------- | ----------------------------------------------------------------------- |
+| label      | `String`        |               | label text.                                                             |
+| icon       | `String`        |               | Enter the icon name.                                                    |
+| isLoading  | `Boolean`       | false         | Toggle Loading state of button                                          |
+| loaderIcon | `String`        |               | Enter loader icon name (That you should have in your components list)   |
+| tag        | `String`        | `button`      | tag name like button, a, nuxt-link, router-link                         |
+| href       | `String`        |               | Use button as anchor tag (Will render as anchor tag)                    |
+| to         | `String,Object` |               | Use button as router-link component (Will render as anchor router-link) |
+| disabled   | `Boolean`       | false         | to disables the button                                                  |
 
 ## Slots
 

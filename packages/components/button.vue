@@ -1,19 +1,37 @@
 <template>
   <component
-    :is="tag"
+    :is="tagIs"
+    :href="href"
+    :to="to"
     :class="{
       [buttonClasses]: true,
       'flex-row-reverse': iconAfter,
       'pointer-events-none opacity-70': disabled || isLoading,
     }"
   >
+    <!-- icon slot -->
+    <!-- you can render anything at the place of icon -->
     <slot name="icon">
+      <!-- if loading is true then loader will show -->
       <component
-        v-if="icon || isLoading"
-        :is="isLoading ? 'AwIconLoading' : icon"
-        :class="size == 'sm' ? 'text-lg' : 'text-xl'"
+        v-if="icon"
+        :is="isLoading ? loaderIcon : icon"
+        :class="iconClass"
       />
     </slot>
+
+    <!-- slot loading-icon  -->
+    <!-- Loader when there is no icon you can render you own icon -->
+    <slot name="loading-icon">
+      <component
+        :is="loaderIcon"
+        v-if="!icon && isLoading"
+        :class="iconClass"
+      />
+    </slot>
+
+    <!-- defaul slot  -->
+    <!-- label will be render in this slot bu default -->
     <slot v-if="shape != 'circle'" name="default">{{ label }}</slot>
   </component>
 </template>
@@ -38,6 +56,8 @@ const props = defineProps({
     type: String,
     default: "button",
   },
+  to: [String, Object],
+  href: String,
   isLoading: {
     type: Boolean,
     default: false,
@@ -50,6 +70,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  loaderIcon: {
+    type: String,
+    default: "AwIconLoading",
+  },
 });
 
 const buttonClasses = computed(() => {
@@ -61,5 +85,25 @@ const buttonClasses = computed(() => {
       shape: props.shape,
     })
   );
+});
+
+const iconClass = computed(() => {
+  if (props.size == "sm") {
+    return "text-lg";
+  } else if (props.size == "md") {
+    return "text-xl";
+  }
+});
+
+const tagIs = computed(() => {
+  if (props.href) {
+    return "a";
+  } else if (props.to) {
+    return "router-link";
+  } else if (props.tag) {
+    return props.tag;
+  } else {
+    return "button";
+  }
 });
 </script>
