@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@headlessui/vue": "^1.7.21",
     "class-variance-authority": "^0.7.0",
     "postcss": "^8.4.38",
     "tailwind-merge": "^2.3.0",
