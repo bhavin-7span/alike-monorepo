@@ -1,14 +1,19 @@
 <template>
   <button
-    :class="{ [buttonClasses]: true, 'flex-row-reverse	': iconAfter }"
-    class="flex items-center justify-center gap-2"
+    :class="{
+      [buttonClasses]: true,
+      'flex-row-reverse': iconAfter,
+      'pointer-events-none opacity-70': disabled || isLoading,
+    }"
   >
-    <component
-      v-if="icon || isLoading"
-      :is="isLoading ? 'AwIconLoading' : icon"
-      :class="size == 'sm' ? 'text-base' : 'text-lg'"
-    />
-    <slot name="default">{{ label }}</slot>
+    <slot name="icon">
+      <component
+        v-if="icon || isLoading"
+        :is="isLoading ? 'AwIconLoading' : icon"
+        :class="size == 'sm' ? 'text-lg' : 'text-xl'"
+      />
+    </slot>
+    <slot v-if="shape != 'circle'" name="default">{{ label }}</slot>
   </button>
 </template>
 <script setup>
@@ -27,11 +32,16 @@ const props = defineProps({
   size: String,
   theme: String,
   icon: String,
+  shape: String,
   isLoading: {
     type: Boolean,
     default: false,
   },
   iconAfter: {
+    type: Boolean,
+    default: false,
+  },
+  disabled: {
     type: Boolean,
     default: false,
   },
@@ -43,6 +53,7 @@ const buttonClasses = computed(() => {
       type: props.type,
       size: props.size,
       theme: props.theme,
+      shape: props.shape,
     })
   );
 });
