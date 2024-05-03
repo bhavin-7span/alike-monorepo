@@ -1,6 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const button = cva(
+  // default class will applied on every button
   ["font-medium rounded-full w-fit flex items-center justify-center"],
   {
     variants: {
@@ -117,6 +118,8 @@ export const button = cva(
         class: "bg-grey-300 text-grey-500 hover:bg-grey-400 hover:text-black",
       },
     ],
+
+    // Default class variation.
     defaultVariants: {
       type: "primary",
       size: "md",

@@ -68,6 +68,7 @@ const shapes = ["rounded", "circle"];
 | ---------- | --------------- | ------------- | ----------------------------------------------------------------------- |
 | label      | `String`        |               | label text.                                                             |
 | icon       | `String`        |               | Enter the icon name.                                                    |
+| iconAfter  | `Boolean`       | false         | to move the icon to right or left of label                              |
 | isLoading  | `Boolean`       | false         | Toggle Loading state of button                                          |
 | loaderIcon | `String`        |               | Enter loader icon name (That you should have in your components list)   |
 | tag        | `String`        | `button`      | tag name like button, a, nuxt-link, router-link                         |

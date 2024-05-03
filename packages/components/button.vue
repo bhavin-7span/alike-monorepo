@@ -76,6 +76,7 @@ const props = defineProps({
   },
 });
 
+// Using CVA from button.js to generate the class of button variation.
 const buttonClasses = computed(() => {
   return twMerge(
     button({
@@ -87,6 +88,7 @@ const buttonClasses = computed(() => {
   );
 });
 
+// To apply the font-size on icon basis on size props.
 const iconClass = computed(() => {
   if (props.size == "sm") {
     return "text-lg";
@@ -95,6 +97,7 @@ const iconClass = computed(() => {
   }
 });
 
+// Dynamic tag rendering based on redirection attributes.
 const tagIs = computed(() => {
   if (props.href) {
     return "a";
