@@ -44,8 +44,7 @@ const state = reactive({
 
 ## Slots
 
-| Name    | Default Content | Data Available | Description                                                   |
-| ------- | --------------- | -------------- | ------------------------------------------------------------- |
-| icon    | Icon Component  | -              | Render your own icon or any other component at place of icon. |
-| default | label           | -              | By default label is rendered here.                            |
+| Name    | Default Content           | Data Available | Description                                                      |
+| ------- | ------------------------- | -------------- | ---------------------------------------------------------------- |
+| default | Your content will be here | -              | render anything inside this slot ex. radio group, checkbox group |
 </docs>
