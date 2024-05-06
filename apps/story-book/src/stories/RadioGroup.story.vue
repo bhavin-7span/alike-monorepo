@@ -3,7 +3,7 @@
     <div class="h-96">
       <RadioGroup
         v-model="city"
-        :valueIs="state.valueIs"
+        :value-is="state.valueIs"
         :options="cities"
         :label-is="state.labelIs"
         :disabled="state.disabled"
@@ -94,6 +94,7 @@ const cities = reactive([
 | Name          | Type      | Default Value | Description                                                                                 |
 | ------------- | --------- | ------------- | ------------------------------------------------------------------------------------------- |
 | name          | `String`  | radio-group   | name of group.                                                                              |
+| type          | `String`  | checkbox      | if enter type radiobox it will react like radio box group.                                  |
 | options       | `Array`   | []            | Array of options.                                                                           |
 | disabled      | `Boolean` | false         | radio-group will be disabled.                                                               |
 | valueIs       | `String`  | value         | key name of value from object. ex. id, value, uid                                           |
@@ -103,14 +104,15 @@ const cities = reactive([
 
 ## Slots
 
-| Name    | Default Content | Data Available            | Description                                                                                    |
-| ------- | --------------- | ------------------------- | ---------------------------------------------------------------------------------------------- |
-| default | radio buttons   | data,index,isActive,value | you can get selected data of option, value of option, option is active or not, index of option |
+| Name    | Default Content | Data Available            | Description                                                                                              |
+| ------- | --------------- | ------------------------- | -------------------------------------------------------------------------------------------------------- |
+| default | radio buttons   | data,index,isActive,value | you can get selected data of option, value of selected options, option is active or not, index of option |
 
 ## Events
 
 | Name              | Data   | Description                                  |
 | ----------------- | ------ | -------------------------------------------- |
-| update:modelValue | value  | emit value of selected option. (Use v-model) |
-| change            | object | emit full object (option).                   |
+| update:modelValue | array  | emit value of selected option. (Use v-model) |
+| change            | array  | array selected values with full data object. |
+| input             | object | return only changed value                    |
 </docs>

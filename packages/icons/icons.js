@@ -18,6 +18,11 @@ import CurrencyUsd from "./icons/currency-usd.vue";
 import RadioChecked from "./icons/radio-checked.vue";
 import RadioBlank from "./icons/radio-blank.vue";
 
+//Checkbox group
+import CheckboxBlank from "./icons/checkbox-blank.vue";
+import CheckboxOrange from "./icons/checkbox-orange.vue";
+import Checkbox from "./icons/checkbox.vue";
+
 export default {
   ArrowDown,
   ArrowRight,
@@ -33,4 +38,7 @@ export default {
   Dropdown,
   RadioChecked,
   RadioBlank,
+  CheckboxBlank,
+  CheckboxOrange,
+  Checkbox,
 };
