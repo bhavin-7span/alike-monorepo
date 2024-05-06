@@ -24,7 +24,7 @@
       />
     </PopoverButton>
 
-    <PopoverPanel class="absolute bg-white" :class="popoverClass">
+    <PopoverPanel class="absolute text-start bg-white" :class="popoverClass">
       <slot name="default"> Your content will be here </slot>
     </PopoverPanel>
   </Popover>

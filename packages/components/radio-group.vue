@@ -5,6 +5,7 @@
       :key="index"
       @click="updateValue(option)"
       :disabled="disabled"
+      class="text-start"
     >
       <input type="radio" class="hidden" :name="name" :value="option" />
       <slot
@@ -14,7 +15,7 @@
         :isActive="option[valueIs] == modelValue"
         :value="modelValue"
       >
-        <div class="flex gap-1 items-center justify-center">
+        <div class="flex gap-1">
           <Icon
             v-if="option[valueIs] == modelValue"
             name="AwIconRadioChecked"
