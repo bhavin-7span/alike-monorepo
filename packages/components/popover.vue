@@ -1,10 +1,10 @@
 <template>
   <Popover v-slot="{ open }" class="relative">
     <PopoverButton
-      class="flex items-center py-3 gap-3 px-4 justify-between border-2 border-grey-500 hover:border-black rounded-full outline-none"
+      class="flex items-center bg-white py-3 gap-3 px-4 justify-between border-2 border-grey-500 hover:border-black rounded-full outline-none"
     >
       <div class="flex gap-2 items-center">
-        <Icon name="AwIconFilter" class="text-lg" />
+        <Icon v-if="popoverIcon" :name="popoverIcon" class="text-lg" />
         <p v-if="selectedValue" class="text-base font-medium">
           {{ selectedValue }}
         </p>
@@ -42,6 +42,10 @@ const props = defineProps({
   },
   count: [String, Number],
   popoverClass: String,
+  popoverIcon: {
+    type: [String, Boolean],
+    default: "AwIconFilter",
+  },
   selectedValue: [String, Number],
 });
 </script>

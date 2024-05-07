@@ -4,6 +4,7 @@
     :selected-value="selectedValue?.label"
     :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :count="count"
+    :popover-icon="selectIcon"
     popover-class="top-16 popover-shadow py-4 rounded-xs"
   >
     <template #default>
@@ -22,12 +23,18 @@
             }"
             class="min-w-44 items-center py-3 gap-2 px-4 flex"
           >
-            <div
-              v-if="showOptionIcon || selectedIcon"
-              class="h-4 flex items-center w-4"
-            >
-              <Icon v-if="data.icon && showOptionIcon" :name="data.icon" />
-              <Icon v-else-if="selectedIcon && isActive" :name="selectedIcon" />
+            <div v-if="showOptionIcon || selectedIcon" class="h-5 flex w-5">
+              <Icon
+                v-if="data.icon && showOptionIcon"
+                :name="data.icon"
+                class="text-lg"
+              />
+              <Icon
+                v-else-if="selectedIcon && isActive"
+                :name="selectedIcon"
+                class="text-lg"
+              />
+              <Icon v-else-if="icon" :name="icon" class="text-lg" />
             </div>
             <p class="text-base">
               {{ data.label }}
@@ -68,11 +75,16 @@ const props = defineProps({
     default: false,
   },
   selectedIcon: String,
+  icon: String,
   count: [String, Number],
   modelValue: [String, Number, Boolean, Object],
   disabled: {
     type: Boolean,
     default: false,
+  },
+  selectIcon: {
+    type: [String, Boolean],
+    default: "AwIconFilter",
   },
 });
 
