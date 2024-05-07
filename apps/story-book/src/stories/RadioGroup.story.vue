@@ -3,9 +3,7 @@
     <div class="h-96">
       <RadioGroup
         v-model="city"
-        :value-is="state.valueIs"
         :options="cities"
-        :label-is="state.labelIs"
         :disabled="state.disabled"
         :color="state.color"
         class="flex gap-3"
@@ -15,16 +13,6 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstSelect
-            v-model="state.labelIs"
-            title="Label Key"
-            :options="labelKeys"
-          />
-          <HstSelect
-            v-model="state.valueIs"
-            title="Value Key"
-            :options="valueKeys"
-          />
           <HstSelect
             v-model="state.color"
             title="Color"
@@ -42,16 +30,12 @@ import { reactive } from "vue";
 import { ref } from "vue";
 
 const state = reactive({
-  valueIs: "id",
-  labelIs: "name",
   disabled: false,
   color: "primary",
 });
 
 const city = ref(null);
 
-const labelKeys = ["label", "name"];
-const valueKeys = ["id", "value"];
 const colorOptions = ["primary", "secondary", "black"];
 
 const cities = reactive([
@@ -97,8 +81,6 @@ const cities = reactive([
 | type          | `String`  | checkbox      | if enter type radiobox it will react like radio box group.                                  |
 | options       | `Array`   | []            | Array of options.                                                                           |
 | disabled      | `Boolean` | false         | radio-group will be disabled.                                                               |
-| valueIs       | `String`  | value         | key name of value from object. ex. id, value, uid                                           |
-| labelIs       | `String`  | label         | key name of label from object. ex. name, label, city_name                                   |
 | color         | `String`  | primary       | radio-icon color ex. primary,secondary.                                                     |
 | changeOnClick | `Boolean` | true          | if false, value will not change on click. (we need it in radio-card for other button click) |
 

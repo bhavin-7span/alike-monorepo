@@ -3,8 +3,6 @@
     <div class="h-96">
       <CheckboxGroup
         class="grid gap-3 mt-5 md:mt-6 grid-cols-1 md:grid-cols-4"
-        :label-is="state.labelIs"
-        :value-is="state.valueIs"
         :type="state.type"
         :disabled="state.disabled"
         :color="state.color"
@@ -23,21 +21,6 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstSelect
-            v-model="state.labelIs"
-            title="Label Key"
-            :options="labelKeys"
-          />
-          <HstSelect
-            v-model="state.valueIs"
-            title="Value Key"
-            :options="valueKeys"
-          />
-          <HstSelect
-            v-model="state.valueIs"
-            title="Value Key"
-            :options="valueKeys"
-          />
           <HstSelect v-model="state.type" title="Type" :options="types" />
           <HstSelect
             v-model="state.color"
@@ -56,8 +39,6 @@ import { reactive } from "vue";
 import { ref } from "vue";
 
 const state = reactive({
-  valueIs: "id",
-  labelIs: "name",
   disabled: false,
   type: "checkbox",
   color: "black",
@@ -67,8 +48,6 @@ const selectedCityIds = ref([]);
 const selectedCities = ref([]);
 const changedValue = ref(null);
 
-const labelKeys = ["label", "name"];
-const valueKeys = ["id", "value"];
 const types = ["checkbox", "radio"];
 const colorOptions = ["primary", "black"];
 
@@ -113,13 +92,11 @@ const cities = reactive([
 <docs lang="md">
 ## Props
 
-| Name     | Type      | Default Value  | Description                                               |
-| -------- | --------- | -------------- | --------------------------------------------------------- |
-| name     | `String`  | checkbox-group | name of group.                                            |
-| options  | `Array`   | []             | Array of options.                                         |
-| disabled | `Boolean` | false          | radio-group will be disabled.                             |
-| valueIs  | `String`  | value          | key name of value from object. ex. id, value, uid         |
-| labelIs  | `String`  | label          | key name of label from object. ex. name, label, city_name |
+| Name     | Type      | Default Value  | Description                   |
+| -------- | --------- | -------------- | ----------------------------- |
+| name     | `String`  | checkbox-group | name of group.                |
+| options  | `Array`   | []             | Array of options.             |
+| disabled | `Boolean` | false          | radio-group will be disabled. |
 
 ## Slots
 

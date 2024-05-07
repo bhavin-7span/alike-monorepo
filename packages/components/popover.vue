@@ -8,7 +8,9 @@
         <p v-if="selectedValue" class="text-base font-medium">
           {{ selectedValue }}
         </p>
-        <p v-else class="text-base font-semibold font-medium">{{ label }}</p>
+        <p v-else class="text-base font-medium">
+          {{ placeholder }}
+        </p>
       </div>
       <div
         v-if="count"
@@ -34,7 +36,7 @@
 import Icon from "./icon.vue";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 const props = defineProps({
-  label: {
+  placeholder: {
     type: String,
     default: "Select",
   },

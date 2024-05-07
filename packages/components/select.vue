@@ -1,22 +1,38 @@
 <template>
-  <Popover popover-class="top-16 popover-shadow py-4 rounded-xs">
+  <Popover
+    :placeholder="placeholder"
+    :selected-value="selectedValue?.label"
+    :class="disabled ? 'pointer-events-none opacity-50' : ''"
+    :count="count"
+    popover-class="top-16 popover-shadow py-4 rounded-xs"
+  >
     <template #default>
       <RadioGroup
         :modelValue="modelValue"
-        :value-is="valueIs"
-        :label-is="labelIs"
         @change="emitSelectValue($event)"
-        name="select"
+        :name="name"
         class="flex flex-col"
         :options="options"
       >
         <template #default="{ data, isActive }">
-          <p
-            class="py-2 text-base px-4"
-            :class="isActive ? 'bg-primary-50 text-primary-500' : ''"
+          <div
+            :class="{
+              'bg-primary-50 text-primary-500': isActive,
+              'flex-row-reverse': iconAfter,
+            }"
+            class="min-w-44 items-center py-3 gap-2 px-4 flex"
           >
-            {{ data.label }}
-          </p>
+            <div
+              v-if="showOptionIcon || selectedIcon"
+              class="h-4 flex items-center w-4"
+            >
+              <Icon v-if="data.icon && showOptionIcon" :name="data.icon" />
+              <Icon v-else-if="selectedIcon && isActive" :name="selectedIcon" />
+            </div>
+            <p class="text-base">
+              {{ data.label }}
+            </p>
+          </div>
         </template>
       </RadioGroup>
     </template>
@@ -30,25 +46,41 @@ import RadioGroup from "./radio-group.vue";
 
 const emit = defineEmits(["change", "update:modelValue"]);
 
-const selectedItem = ref();
 const props = defineProps({
+  name: {
+    type: String,
+    default: "select",
+  },
   options: {
     type: Array,
     default: () => [],
   },
-  valueIs: {
+  placeholder: {
     type: String,
-    default: "value",
+    default: "Select",
   },
-  labelIs: {
-    type: String,
-    default: "label",
+  iconAfter: {
+    type: Boolean,
+    default: false,
   },
+  showOptionIcon: {
+    type: Boolean,
+    default: false,
+  },
+  selectedIcon: String,
+  count: [String, Number],
   modelValue: [String, Number, Boolean, Object],
+  disabled: {
+    type: Boolean,
+    default: false,
+  },
 });
 
+const selectedValue = ref(null);
+
 function emitSelectValue(option) {
-  emit("update:modelValue", option[props.valueIs]);
+  emit("update:modelValue", option.value);
   emit("change", option);
+  selectedValue.value = option;
 }
 </script>

@@ -22,6 +22,7 @@ import RadioBlank from "./icons/radio-blank.vue";
 import CheckboxBlank from "./icons/checkbox-blank.vue";
 import CheckboxOrange from "./icons/checkbox-orange.vue";
 import Checkbox from "./icons/checkbox.vue";
+import CheckMark from "./icons/check-mark.vue";
 
 export default {
   ArrowDown,
@@ -41,4 +42,5 @@ export default {
   CheckboxBlank,
   CheckboxOrange,
   Checkbox,
+  CheckMark,
 };

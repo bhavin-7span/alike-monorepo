@@ -2,7 +2,7 @@
   <Story auto-props-disabled>
     <div class="h-96">
       <Popover
-        :label="state.label"
+        :placeholder="state.placeholder"
         :selectedValue="state.selectedValue"
         :count="state.count"
         :popoverClass="state.popoverClass"
@@ -11,7 +11,7 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstText v-model="state.label" title="label" />
+          <HstText v-model="state.placeholder" title="Placeholder" />
           <HstText v-model="state.selectedValue" title="Selected Value" />
           <HstText v-model="state.count" title="Count" />
           <HstText v-model="state.popoverClass" title="Popover Class" />
@@ -25,7 +25,7 @@ import Popover from "components/Popover.vue";
 import { reactive } from "vue";
 
 const state = reactive({
-  label: "Select",
+  placeholder: "Select",
   selectedValue: "",
   count: "",
   popoverClass: "",
@@ -37,7 +37,7 @@ const state = reactive({
 
 | Name          | Type             | Default Value | Description                                                                                                                             |
 | ------------- | ---------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| label         | `String`         | Select        | label (placeholder) for popover.                                                                                                        |
+| Placeholder   | `String`         | Select        | Placeholder (placeholder) for popover.                                                                                                  |
 | selectedValue | `String, Number` |               | If you will add selected value then label (placeholder) will replaced with selectedValue. (use for radio & checkbox)                    |
 | count         | `String, Number` |               | To show the count at the place of dropdown arrow.                                                                                       |
 | popoverClass  | `String`         |               | Add a class for set the position,shadow,padding,border radius of popover (class absolute, drop-shadow, bg-white is added byt default ). |

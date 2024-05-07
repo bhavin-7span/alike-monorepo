@@ -12,18 +12,18 @@
         name="default"
         :data="option"
         :index="index"
-        :isActive="option[valueIs] == modelValue"
+        :isActive="option.value == modelValue"
         :value="modelValue"
       >
         <div class="flex gap-1">
           <Icon
-            v-if="option[valueIs] == modelValue"
+            v-if="option.value == modelValue"
             name="AwIconRadioChecked"
             class="text-lg"
             :class="colorClass"
           />
           <Icon v-else name="AwIconRadioBlank" class="text-grey-500 text-lg" />
-          <p>{{ option[labelIs] }}</p>
+          <p>{{ option.label }}</p>
         </div>
       </slot>
     </button>
@@ -37,14 +37,6 @@ const props = defineProps({
   name: {
     type: String,
     default: "radio-group",
-  },
-  valueIs: {
-    type: String,
-    default: "value",
-  },
-  labelIs: {
-    type: String,
-    default: "label",
   },
   options: {
     type: Array,
@@ -82,7 +74,7 @@ const colorClass = computed(() => {
 
 function updateValue(option) {
   if (props.changeOnClick) {
-    emit("update:modelValue", option[props.valueIs]);
+    emit("update:modelValue", option.value);
     emit("change", option);
   }
 }

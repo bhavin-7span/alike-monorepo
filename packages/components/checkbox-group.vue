@@ -1,7 +1,7 @@
 <template>
   <div>
     <button
-      @click="changeValue(option[valueIs], option)"
+      @click="changeValue(option.value, option)"
       :disabled="disabled"
       v-for="(option, index) in options"
       :key="index"
@@ -12,7 +12,7 @@
           v-model="selectedValues"
           :id="`label${index}`"
           :name="name"
-          :value="option[valueIs]"
+          :value="option.value"
         />
         <label :for="`label${index}`">{{ option.name }}</label>
       </div>
@@ -21,12 +21,12 @@
         :data="option"
         :index="index"
         :value="selectedValues"
-        :isActive="selectedValues.includes(option[valueIs])"
+        :isActive="selectedValues.includes(option.value)"
       >
         <div class="flex items-center gap-2">
           <div class="h-6 w-6">
             <Icon
-              v-if="selectedValues.includes(option[valueIs])"
+              v-if="selectedValues.includes(option.value)"
               :name="
                 color == 'primary' ? 'AwIconCheckboxOrange' : 'AwIconCheckbox'
               "
@@ -34,7 +34,7 @@
             />
             <Icon v-else name="AwIconCheckboxBlank" />
           </div>
-          <p class="text-base text-start">{{ option[labelIs] }}</p>
+          <p class="text-base text-start">{{ option.label }}</p>
         </div>
       </slot>
     </button>
@@ -56,16 +56,6 @@ const props = defineProps({
   name: {
     type: String,
     default: "checkbox-group",
-  },
-  //What will ne label from your object? : labelIs
-  labelIs: {
-    type: String,
-    required: true,
-  },
-  //What will be value from your object? : valueIs
-  valueIs: {
-    type: String,
-    default: "value",
   },
   modelValue: {
     type: Array,
@@ -111,7 +101,7 @@ function getSelectedValues() {
   const values = [];
   selectedValues.value.map((selected_val) => {
     props.options.map((option) => {
-      if (option[props.valueIs] === selected_val) {
+      if (option.value === selected_val) {
         values.push(option);
       }
     });
