@@ -5,6 +5,7 @@
     :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :count="count"
     :popover-icon="popoverIcon"
+    :show-dropdown-icon="showDropdownIcon"
     popover-class="top-16 popover-shadow py-4 rounded-xs"
   >
     <template #default>
@@ -92,6 +93,10 @@ const props = defineProps({
   placeholderIcon: {
     type: [String, Boolean],
     default: "AwIconFilter",
+  },
+  showDropdownIcon: {
+    type: Boolean,
+    default: true,
   },
 });
 

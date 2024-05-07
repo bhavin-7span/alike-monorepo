@@ -19,7 +19,7 @@
         {{ count }}
       </div>
       <Icon
-        v-else
+        v-else-if="showDropdownIcon"
         name="AwIconDropdown"
         class="text-xl ml-3 transition-all"
         :class="open ? '-rotate-180' : ''"
@@ -50,6 +50,10 @@ const props = defineProps({
   popoverIcon: {
     type: [String, Boolean],
     default: "AwIconFilter",
+  },
+  showDropdownIcon: {
+    type: Boolean,
+    default: true,
   },
   selectedValue: [String, Number],
 });

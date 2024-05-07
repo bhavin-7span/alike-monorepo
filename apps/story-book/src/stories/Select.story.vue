@@ -13,6 +13,7 @@
         :placeholder="state.placeholder"
         :placeholder-icon="state.placeholderIcon"
         :dynamic-placeholder-icon="state.dynamicPlaceholderIcon"
+        :show-dropdown-icon="state.showDropdownIcon"
         name="currency-select"
       />
     </div>
@@ -39,6 +40,10 @@
           />
           <HstCheckbox v-model="state.iconAfter" title="Icon After" />
           <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstCheckbox
+            v-model="state.showDropdownIcon"
+            title="Show Dropdown Icon"
+          />
         </template>
       </ControlGroup>
     </template>
@@ -60,6 +65,7 @@ const state = reactive({
   showOptionIcon: true,
   iconAfter: false,
   disabled: false,
+  showDropdownIcon: true,
 });
 
 const selectedCurrency = ref();
@@ -105,6 +111,7 @@ const currencies = reactive([
 | disabled               | `Boolean`        | false              | to disabled the select component.                                                                       |
 | placeholderIcon        | `String,Boolean` | AwIconFilter       | pass icon name to shoe the placeholder icon, pass false to hide the placeholder icon .                  |
 | dynamicPlaceholderIcon | `Boolean`        | false              | pass true, if you want to show the dynamic placeholder icon from your option object only .              |
+| showDropdownIcon       | `Boolean`        | true               | To hide and show the dropdown icon of select component.                                                 |
 
 ## Slots
 
