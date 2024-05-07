@@ -26,8 +26,13 @@
       />
     </PopoverButton>
 
-    <PopoverPanel class="absolute text-start bg-white" :class="popoverClass">
-      <slot name="default"> Your content will be here </slot>
+    <PopoverPanel
+      class="absolute popup-arrow text-start bg-white"
+      :class="popoverClass"
+    >
+      <slot name="default">
+        <div class="p-5">Your content will be here</div></slot
+      >
     </PopoverPanel>
   </Popover>
 </template>
@@ -49,8 +54,32 @@ const props = defineProps({
   selectedValue: [String, Number],
 });
 </script>
-<style>
+<style lang="scss">
 .popover-shadow {
   box-shadow: 0px 5px 50px 0px #0000000d;
+}
+.popup-arrow {
+  box-shadow: 0px 1px 10px rgba(0, 0, 0, 0.1);
+  &::after {
+    content: "";
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    left: auto;
+    left: 50px;
+    top: -5px;
+
+    /* Natural/White */
+
+    background: #ffffff;
+    transform: rotate(45deg);
+
+    /* Inside auto layout */
+
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    z-index: 0;
+  }
 }
 </style>

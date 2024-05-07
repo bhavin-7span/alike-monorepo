@@ -28,7 +28,7 @@ const state = reactive({
   placeholder: "Select",
   selectedValue: "",
   count: "",
-  popoverClass: "",
+  popoverClass: "top-16",
 });
 </script>
 <style scoped></style>

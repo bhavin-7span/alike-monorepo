@@ -2,7 +2,7 @@
   <Story auto-props-disabled>
     <div class="h-96">
       <CheckboxGroup
-        class="grid gap-3 mt-5 md:mt-6 grid-cols-1 md:grid-cols-4"
+        class="grid gap-3 mt-5 md:mt-6 grid-cols-2"
         :type="state.type"
         :disabled="state.disabled"
         :color="state.color"

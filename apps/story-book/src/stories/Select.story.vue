@@ -11,7 +11,8 @@
         :disabled="state.disabled"
         :count="state.count"
         :placeholder="state.placeholder"
-        :popoverIcon="false"
+        :placeholder-icon="state.placeholderIcon"
+        :dynamic-placeholder-icon="state.dynamicPlaceholderIcon"
         name="currency-select"
       />
     </div>
@@ -21,11 +22,20 @@
         <template #props>
           <HstText v-model="state.placeholder" title="Placeholder" />
           <HstText v-model="state.selectedIcon" title="Selected Icon" />
+          <HstText
+            type="number"
+            v-model="state.placeholderIcon"
+            title="Placeholder Icon"
+          />
           <HstText v-model="state.icon" title="Icon (default)" />
           <HstText type="number" v-model="state.count" title="Show Count" />
           <HstCheckbox
             v-model="state.showOptionIcon"
             title="Show option Icon"
+          />
+          <HstCheckbox
+            v-model="state.dynamicPlaceholderIcon"
+            title="Placeholder Icon from option"
           />
           <HstCheckbox v-model="state.iconAfter" title="Icon After" />
           <HstCheckbox v-model="state.disabled" title="Disabled" />
@@ -45,6 +55,8 @@ const state = reactive({
   selectedIcon: "AwIconRadioChecked",
   icon: "AwIconRadioBlank",
   count: "",
+  placeholderIcon: "AwIconFilter",
+  dynamicPlaceholderIcon: false,
   showOptionIcon: true,
   iconAfter: false,
   disabled: false,
@@ -80,17 +92,19 @@ const currencies = reactive([
 <docs lang="md">
 ## Props
 
-| Name           | Type            | Default Value      | Description                                                                                  |
-| -------------- | --------------- | ------------------ | -------------------------------------------------------------------------------------------- |
-| name           | `String`        | select             | if you are using multi select in single page the provide a name of select group.             |
-| options        | `Array`         | []                 | Array of options.                                                                            |
-| placeholder    | `String`        | Select             | placeholder for select.                                                                      |
-| iconAfter      | `Boolean`       | false              | if true, Icon will be show after the label.                                                  |
-| showOptionIcon | `Boolean`       | false              | provide the icon key in option object to show the individual icon.                           |
-| selectedIcon   | `String`        | AwIconRadioChecked | if you want to show only icon on selected item then pass the name of that icon in this prop. |
-| icon           | `String`        | AwIconRadioBlank   | Show icon before label in each item.                                                         |
-| count          | `String,Number` | -                  | pass the count number to show at the place of select dropdown arrow.                         |
-| disabled       | `Boolean`       | false              | to disabled the select component.                                                            |
+| Name                   | Type             | Default Value      | Description                                                                                             |
+| ---------------------- | ---------------- | ------------------ | ------------------------------------------------------------------------------------------------------- |
+| name                   | `String`         | select             | if you are using multi select in single page the provide a name of select group.                        |
+| options                | `Array`          | []                 | Array of options.                                                                                       |
+| placeholder            | `String`         | Select             | placeholder for select.                                                                                 |
+| iconAfter              | `Boolean`        | false              | if true, Icon will be show after the label.                                                             |
+| showOptionIcon         | `Boolean`        | false              | provide the icon key in option object to show the individual icon.                                      |
+| selectedIcon           | `String,Boolean` | AwIconRadioChecked | if you want to show only icon on selected item then pass the name of that icon else pass false to hide. |
+| icon                   | `String`         | AwIconRadioBlank   | Show icon before label in each item.                                                                    |
+| count                  | `String,Number`  | -                  | pass the count number to show at the place of select dropdown arrow.                                    |
+| disabled               | `Boolean`        | false              | to disabled the select component.                                                                       |
+| placeholderIcon        | `String,Boolean` | AwIconFilter       | pass icon name to shoe the placeholder icon, pass false to hide the placeholder icon .                  |
+| dynamicPlaceholderIcon | `Boolean`        | false              | pass true, if you want to show the dynamic placeholder icon from your option object only .              |
 
 ## Slots
 

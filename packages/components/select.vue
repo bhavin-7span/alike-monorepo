@@ -4,7 +4,7 @@
     :selected-value="selectedValue?.label"
     :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :count="count"
-    :popover-icon="selectIcon"
+    :popover-icon="popoverIcon"
     popover-class="top-16 popover-shadow py-4 rounded-xs"
   >
     <template #default>
@@ -23,7 +23,10 @@
             }"
             class="min-w-44 items-center py-3 gap-2 px-4 flex"
           >
-            <div v-if="showOptionIcon || selectedIcon" class="h-5 flex w-5">
+            <div
+              v-if="showOptionIcon || selectedIcon"
+              class="h-5 flex items-center w-5"
+            >
               <Icon
                 v-if="data.icon && showOptionIcon"
                 :name="data.icon"
@@ -47,7 +50,7 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import Popover from "./popover.vue";
 import RadioGroup from "./radio-group.vue";
 
@@ -74,7 +77,7 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  selectedIcon: String,
+  selectedIcon: [String, Boolean],
   icon: String,
   count: [String, Number],
   modelValue: [String, Number, Boolean, Object],
@@ -82,13 +85,25 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
-  selectIcon: {
+  dynamicPlaceholderIcon: {
+    type: Boolean,
+    default: false,
+  },
+  placeholderIcon: {
     type: [String, Boolean],
     default: "AwIconFilter",
   },
 });
 
 const selectedValue = ref(null);
+
+const popoverIcon = computed(() => {
+  if (props.dynamicPlaceholderIcon) {
+    return selectedValue.value?.icon;
+  } else {
+    return props.placeholderIcon;
+  }
+});
 
 function emitSelectValue(option) {
   emit("update:modelValue", option.value);

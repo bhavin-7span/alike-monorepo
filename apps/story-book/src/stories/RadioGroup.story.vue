@@ -6,9 +6,9 @@
         :options="cities"
         :disabled="state.disabled"
         :color="state.color"
-        class="flex gap-3"
+        class="grid grid-cols-2 gap-3"
       />
-      <p>Selected: {{ city }}</p>
+      <p class="mt-10">Selected: {{ city }}</p>
     </div>
     <template #controls>
       <ControlGroup>
