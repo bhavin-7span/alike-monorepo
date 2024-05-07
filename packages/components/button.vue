@@ -48,7 +48,7 @@ import { twMerge } from "tailwind-merge";
 
 const props = defineProps({
   label: String,
-  type: String,
+  color: String,
   size: String,
   theme: String,
   icon: String,
@@ -82,7 +82,7 @@ const props = defineProps({
 const buttonClasses = computed(() => {
   return twMerge(
     button({
-      type: props.type,
+      color: props.color,
       size: props.size,
       theme: props.theme,
       shape: props.shape,
@@ -93,7 +93,7 @@ const buttonClasses = computed(() => {
 const counterClass = computed(() => {
   return twMerge(
     counter({
-      type: props.type,
+      color: props.color,
       size: props.size,
       theme: props.theme,
       shape: props.shape,

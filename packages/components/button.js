@@ -5,7 +5,7 @@ export const button = cva(
   ["font-medium group  rounded-full w-fit flex items-center justify-center"],
   {
     variants: {
-      type: {
+      color: {
         primary: [
           "bg-primary-500",
           "text-primary-500",
@@ -44,13 +44,13 @@ export const button = cva(
     compoundVariants: [
       // Making button circle in type circle with common padding on X & Y axis
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         shape: "circle",
         size: "sm",
         class: "p-2",
       },
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         shape: "circle",
         size: "md",
         class: "p-4",
@@ -58,62 +58,62 @@ export const button = cva(
 
       // Adding click active effect for all button variants
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         theme: ["solid", "outlined", "muted"],
         class: "active:bg-opacity-80",
       },
 
       // text-white for 3 button & theme type
       {
-        type: ["primary", "secondary", "grey"],
+        color: ["primary", "secondary", "grey"],
         theme: ["solid", "outlined"],
         class: "hover:text-white",
       },
 
       //PRIMARY BUTTON - Outlined, Muted
       {
-        type: "primary",
+        color: "primary",
         theme: "outlined",
         class: "hover:bg-primary-500 border-primary-500",
       },
       {
-        type: "primary",
+        color: "primary",
         theme: "muted",
         class: "bg-primary-50 hover:bg-primary-100",
       },
 
       //SECONDARY BUTTON - Outlined, Muted
       {
-        type: "secondary",
+        color: "secondary",
         theme: "outlined",
         class: "hover:bg-secondary-500 border-secondary-500",
       },
       {
-        type: "secondary",
+        color: "secondary",
         theme: "muted",
         class: "bg-secondary-50 hover:bg-secondary-100",
       },
 
       //GREY BUTTON - Outlined, Muted
       {
-        type: "grey",
+        color: "grey",
         theme: "outlined",
         class: "hover:bg-grey-500 border-grey-200",
       },
       {
-        type: "grey",
+        color: "grey",
         theme: "muted",
         class: "bg-grey-100 hover:bg-grey-200",
       },
 
       //BLACK BUTTON - Outlined, Muted
       {
-        type: "black",
+        color: "black",
         theme: "outlined",
         class: "border-black hover:bg-black hover:text-white",
       },
       {
-        type: "black",
+        color: "black",
         theme: "muted",
         class: "bg-grey-100 text-black hover:bg-grey-200 hover:text-black",
       },
@@ -121,7 +121,7 @@ export const button = cva(
 
     // Default class variation.
     defaultVariants: {
-      type: "primary",
+      color: "primary",
       size: "md",
       theme: "solid",
       shape: "rounded",
@@ -133,7 +133,7 @@ export const counter = cva(
   ["font-medium rounded-full flex items-center justify-center"],
   {
     variants: {
-      type: {
+      color: {
         primary: [
           "bg-primary-500",
           "group-hover:text-primary-500 text-primary-500",
@@ -163,27 +163,27 @@ export const counter = cva(
     },
     compoundVariants: [
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         theme: ["solid"],
         class: "bg-white",
       },
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         theme: ["outlined", "muted"],
         class: "text-white",
       },
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         theme: ["muted"],
         class: "group-hover:text-white",
       },
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         theme: ["outlined"],
         class: "group-hover:bg-white",
       },
       {
-        type: ["primary", "secondary", "grey", "black"],
+        color: ["primary", "secondary", "grey", "black"],
         theme: ["link"],
         class: "bg-opacity-0",
       },
@@ -191,7 +191,7 @@ export const counter = cva(
 
     // Default class variation.
     defaultVariants: {
-      type: "primary",
+      color: "primary",
       size: "md",
       theme: "solid",
       shape: "rounded",

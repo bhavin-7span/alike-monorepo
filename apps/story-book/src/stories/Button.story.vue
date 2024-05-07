@@ -7,7 +7,7 @@
       :tag="state.tag"
       :href="state.href"
       :to="state.to"
-      :type="state.type"
+      :color="state.color"
       :size="state.size"
       :is-loading="state.loading"
       :icon-after="state.iconAfter"
@@ -19,7 +19,7 @@
       <ControlGroup>
         <template #props>
           <HstSelect v-model="state.size" title="Size" :options="sizes" />
-          <HstSelect v-model="state.type" title="Color" :options="types" />
+          <HstSelect v-model="state.color" title="Color" :options="colors" />
           <HstSelect v-model="state.theme" title="Theme" :options="themes" />
           <HstSelect v-model="state.shape" title="shape" :options="shapes" />
           <HstCheckbox v-model="state.loading" title="Loading" />
@@ -39,7 +39,7 @@ import Button from "components/button.vue";
 import { reactive } from "vue";
 
 const state = reactive({
-  type: "primary",
+  color: "primary",
   theme: "solid",
   size: "md",
   shape: "rounded",
@@ -53,7 +53,7 @@ const state = reactive({
 });
 
 const sizes = ["md", "sm"];
-const types = ["primary", "secondary", "grey", "black"];
+const colors = ["primary", "secondary", "grey", "black"];
 const themes = ["solid", "outlined", "muted", "link"];
 const shapes = ["rounded", "circle"];
 </script>
@@ -69,6 +69,7 @@ const shapes = ["rounded", "circle"];
 
 | Name       | Type            | Default Value | Description                                                             |
 | ---------- | --------------- | ------------- | ----------------------------------------------------------------------- |
+| color      | `String`        | primary       | color type like primary, secondary, black.                              |
 | label      | `String`        |               | label text.                                                             |
 | icon       | `String`        |               | Enter the icon name.                                                    |
 | iconAfter  | `Boolean`       | false         | to move the icon to right or left of label                              |

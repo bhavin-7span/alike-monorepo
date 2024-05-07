@@ -1,7 +1,7 @@
 <template>
   <Popover v-slot="{ open }" class="relative">
     <PopoverButton
-      class="flex items-center bg-white py-3 gap-3 px-4 justify-between border-2 border-grey-500 hover:border-black rounded-full outline-none"
+      class="flex items-center py-3 gap-3 px-4 justify-between border-2 border-grey-500 hover:border-black rounded-full outline-none"
     >
       <div class="flex gap-2 items-center">
         <Icon v-if="popoverIcon" :name="popoverIcon" class="text-lg" />
@@ -29,8 +29,9 @@
     <PopoverPanel
       class="absolute popup-arrow text-start bg-white"
       :class="popoverClass"
+      v-slot="{ close }"
     >
-      <slot name="default">
+      <slot name="default" :close="close">
         <div class="p-5">Your content will be here</div></slot
       >
     </PopoverPanel>
@@ -40,6 +41,7 @@
 <script setup>
 import Icon from "./icon.vue";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
+
 const props = defineProps({
   placeholder: {
     type: String,

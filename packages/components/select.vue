@@ -8,10 +8,10 @@
     :show-dropdown-icon="showDropdownIcon"
     popover-class="top-16 popover-shadow py-4 rounded-xs"
   >
-    <template #default>
+    <template #default="{ close }">
       <RadioGroup
         :modelValue="modelValue"
-        @change="emitSelectValue($event)"
+        @change="emitSelectValue($event, close)"
         :name="name"
         class="flex flex-col"
         :options="options"
@@ -110,9 +110,10 @@ const popoverIcon = computed(() => {
   }
 });
 
-function emitSelectValue(option) {
+function emitSelectValue(option, close) {
   emit("update:modelValue", option.value);
   emit("change", option);
   selectedValue.value = option;
+  close();
 }
 </script>
