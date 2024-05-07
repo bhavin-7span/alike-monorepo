@@ -13,6 +13,7 @@
       :icon-after="state.iconAfter"
       :disabled="state.disabled"
       :shape="state.shape"
+      :count="state.count"
     />
     <template #controls>
       <ControlGroup>
@@ -24,6 +25,7 @@
           <HstCheckbox v-model="state.loading" title="Loading" />
           <HstCheckbox v-model="state.iconAfter" title="Icon After" />
           <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstText v-model="state.count" title="count" />
           <HstText v-model="state.tag" title="tag" />
           <HstText v-model="state.href" title="href" />
           <HstText v-model="state.to" title="to" />
@@ -44,6 +46,7 @@ const state = reactive({
   loading: false,
   iconAfter: false,
   disabled: false,
+  count: "",
   tag: "button",
   href: "",
   to: "",

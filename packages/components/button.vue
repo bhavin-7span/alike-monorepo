@@ -33,11 +33,12 @@
     <!-- defaul slot  -->
     <!-- label will be render in this slot bu default -->
     <slot v-if="shape != 'circle'" name="default">{{ label }}</slot>
+    <p v-if="shape != 'circle' && count" :class="counterClass">{{ count }}</p>
   </component>
 </template>
 <script setup>
 import { computed, defineProps } from "vue";
-import { button } from "./button.js";
+import { button, counter } from "./button.js";
 
 import { twMerge } from "tailwind-merge";
 //*** Why tailwind-merge ?
@@ -74,12 +75,24 @@ const props = defineProps({
     type: String,
     default: "AwIconLoading",
   },
+  count: [String, Number],
 });
 
 // Using CVA from button.js to generate the class of button variation.
 const buttonClasses = computed(() => {
   return twMerge(
     button({
+      type: props.type,
+      size: props.size,
+      theme: props.theme,
+      shape: props.shape,
+    })
+  );
+});
+
+const counterClass = computed(() => {
+  return twMerge(
+    counter({
       type: props.type,
       size: props.size,
       theme: props.theme,

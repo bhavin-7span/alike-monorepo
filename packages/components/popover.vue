@@ -14,7 +14,7 @@
       </div>
       <div
         v-if="count"
-        class="rounded-full h-6 w-6 flex items-center justify-center bg-black text-white"
+        class="rounded-full h-6 p-2 min-w-6 flex items-center justify-center bg-black text-white"
       >
         {{ count }}
       </div>

@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const button = cva(
   // default class will applied on every button
-  ["font-medium rounded-full w-fit flex items-center justify-center"],
+  ["font-medium group  rounded-full w-fit flex items-center justify-center"],
   {
     variants: {
       type: {
@@ -21,13 +21,13 @@ export const button = cva(
         grey: [
           "bg-grey-500",
           "text-grey-500",
-          "hover:text-grey-600",
+          "hover:text-grey-500",
           "hover:bg-grey-600",
         ],
         black: ["bg-black"],
       },
       size: {
-        sm: ["text-sm", "py-2", "px-4", "gap-1"],
+        sm: ["text-sm", "py-2", "px-3", "gap-1"],
         md: ["text-base", "py-4", "px-6", "gap-2"],
       },
       theme: {
@@ -79,7 +79,7 @@ export const button = cva(
       {
         type: "primary",
         theme: "muted",
-        class: "bg-primary-200 hover:bg-primary-300",
+        class: "bg-primary-50 hover:bg-primary-100",
       },
 
       //SECONDARY BUTTON - Outlined, Muted
@@ -91,19 +91,19 @@ export const button = cva(
       {
         type: "secondary",
         theme: "muted",
-        class: "bg-secondary-200 hover:bg-secondary-300",
+        class: "bg-secondary-50 hover:bg-secondary-100",
       },
 
       //GREY BUTTON - Outlined, Muted
       {
         type: "grey",
         theme: "outlined",
-        class: "hover:bg-grey-500 border-grey-500",
+        class: "hover:bg-grey-500 border-grey-200",
       },
       {
         type: "grey",
         theme: "muted",
-        class: "bg-grey-200 hover:bg-grey-300",
+        class: "bg-grey-100 hover:bg-grey-200",
       },
 
       //BLACK BUTTON - Outlined, Muted
@@ -115,7 +115,77 @@ export const button = cva(
       {
         type: "black",
         theme: "muted",
-        class: "bg-grey-300 text-grey-500 hover:bg-grey-400 hover:text-black",
+        class: "bg-grey-100 text-black hover:bg-grey-200 hover:text-black",
+      },
+    ],
+
+    // Default class variation.
+    defaultVariants: {
+      type: "primary",
+      size: "md",
+      theme: "solid",
+      shape: "rounded",
+    },
+  }
+);
+
+export const counter = cva(
+  ["font-medium rounded-full flex items-center justify-center"],
+  {
+    variants: {
+      type: {
+        primary: [
+          "bg-primary-500",
+          "group-hover:text-primary-500 text-primary-500",
+        ],
+        secondary: [
+          "bg-secondary-500",
+          "group-hover:text-secondary-500",
+          "text-secondary-500",
+        ],
+        grey: ["bg-grey-500", "group-hover:text-grey-500", "text-grey-500"],
+        black: ["bg-black", "group-hover:text-black", "text-black"],
+      },
+      size: {
+        sm: ["text-sm", "h-5", "p-1", "min-w-5"],
+        md: ["text-base", "h-6", "min-w-6", "p-2"],
+      },
+      theme: {
+        solid: ["bg-white"],
+        outlined: [""],
+        link: [""],
+        muted: [""],
+      },
+      shape: {
+        rounded: [""],
+        circler: [""],
+      },
+    },
+    compoundVariants: [
+      {
+        type: ["primary", "secondary", "grey", "black"],
+        theme: ["solid"],
+        class: "bg-white",
+      },
+      {
+        type: ["primary", "secondary", "grey", "black"],
+        theme: ["outlined", "muted"],
+        class: "text-white",
+      },
+      {
+        type: ["primary", "secondary", "grey", "black"],
+        theme: ["muted"],
+        class: "group-hover:text-white",
+      },
+      {
+        type: ["primary", "secondary", "grey", "black"],
+        theme: ["outlined"],
+        class: "group-hover:bg-white",
+      },
+      {
+        type: ["primary", "secondary", "grey", "black"],
+        theme: ["link"],
+        class: "bg-opacity-0",
       },
     ],
 
