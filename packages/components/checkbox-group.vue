@@ -5,6 +5,7 @@
       :disabled="disabled"
       v-for="(option, index) in options"
       :key="index"
+      class="text-start outline-none border-none"
     >
       <div class="hidden">
         <input

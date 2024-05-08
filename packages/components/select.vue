@@ -1,6 +1,6 @@
 <template>
   <Popover
-    popover-class="top-[70px] popover-shadow py-4 rounded-xs"
+    popover-class="top-[70px] py-4 rounded-xs"
     :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :placeholder="placeholder"
     :selected-value="selectedValue?.label"

@@ -22,7 +22,7 @@
     </PopoverButton>
 
     <PopoverPanel
-      class="absolute popup-arrow text-start bg-white"
+      class="absolute popup-arrow popover-shadow text-start bg-white"
       :class="popoverClass"
       v-slot="{ close }"
     >

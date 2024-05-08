@@ -3,7 +3,7 @@ import { cva } from "class-variance-authority";
 export const popover = cva(
   // default class will applied on every button
   [
-    "font-medium group  rounded-full w-fit outline-none flex items-center justify-center",
+    "font-medium group  rounded-full whitespace-nowrap w-fit outline-none flex items-center justify-center",
   ],
   {
     variants: {
@@ -29,8 +29,8 @@ export const popover = cva(
         black: ["bg-black"],
       },
       size: {
-        sm: ["text-sm", "py-2", "px-3", "gap-1"],
-        md: ["text-base", "py-4", "px-5", "gap-2"],
+        sm: ["text-base", "px-4", "h-12", "gap-1"],
+        md: ["text-base", "px-4", "h-14", "gap-2"],
       },
       theme: {
         solid: ["text-white"],

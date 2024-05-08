@@ -3,7 +3,7 @@
     @click="updateValue()"
     :disabled="disabled"
     :class="disabled && 'opacity-50'"
-    class="text-start"
+    class="text-start outline-none border-none"
   >
     <input type="radio" class="hidden" :name="name" :value="modelValue" />
     <slot name="default" :isActive="modelValue" :value="modelValue">
@@ -26,20 +26,16 @@ const emit = defineEmits(["change", "update:modelValue"]);
 const props = defineProps({
   name: {
     type: String,
-    default: "radio-group",
+    default: "choice",
   },
   label: String,
   disabled: {
     type: Boolean,
     default: false,
   },
-  color: {
-    type: String,
-    default: "primary",
-  },
   type: {
     type: String,
-    default: "radio",
+    default: "checkbox",
   },
   modelValue: [Boolean],
 });

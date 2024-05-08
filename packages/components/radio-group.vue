@@ -5,7 +5,7 @@
       :key="index"
       @click="updateValue(option)"
       :disabled="disabled"
-      class="text-start"
+      class="text-start outline-none border-none"
     >
       <input type="radio" class="hidden" :name="name" :value="option" />
       <slot
