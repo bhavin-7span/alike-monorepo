@@ -17,6 +17,7 @@
         :theme="state.theme"
         :color="state.color"
         :size="state.size"
+        :arrowPosition="state.arrowPosition"
         name="currency-select"
       />
     </div>
@@ -25,8 +26,8 @@
       <ControlGroup>
         <template #props>
           <HstSelect v-model="state.color" title="color" :options="colors" />
-          <HstSelect v-model="state.size" title="size" :options="sizes" />
           <HstSelect v-model="state.theme" title="theme" :options="themes" />
+          <HstSelect v-model="state.size" title="size" :options="sizes" />
           <HstText v-model="state.placeholder" title="placeholder" />
           <HstText v-model="state.selectedIcon" title="SelectedIcon" />
           <HstText
@@ -35,7 +36,12 @@
             title="placeholderIcon"
           />
           <HstText v-model="state.icon" title="icon (default)" />
-          <HstText type="number" v-model="state.count" title="count" />
+          <HstNumber type="number" v-model="state.count" title="count" />
+          <HstNumber
+            type="number"
+            v-model="state.arrowPosition"
+            title="arrowPosition"
+          />
           <HstCheckbox v-model="state.showOptionIcon" title="showOptionIcon" />
           <HstCheckbox
             v-model="state.dynamicPlaceholderIcon"
@@ -72,6 +78,7 @@ const state = reactive({
   iconAfter: false,
   disabled: false,
   showDropdownIcon: true,
+  arrowPosition: 50,
 });
 
 const selectedCurrency = ref();
@@ -117,11 +124,15 @@ const currencies = reactive([
 | showOptionIcon         | `Boolean`        | false              | provide the icon key in option object to show the individual icon.                                      |
 | selectedIcon           | `String,Boolean` | AwIconRadioChecked | if you want to show only icon on selected item then pass the name of that icon else pass false to hide. |
 | icon                   | `String`         | AwIconRadioBlank   | Show icon before label in each item.                                                                    |
-| count                  | `String,Number`  | -                  | pass the count number to show at the place of select dropdown arrow.                                    |
+| count                  | `Number`         | -                  | pass the count number to show at the place of select dropdown arrow.                                    |
 | disabled               | `Boolean`        | false              | to disabled the select component.                                                                       |
 | placeholderIcon        | `String,Boolean` | AwIconFilter       | pass icon name to shoe the placeholder icon, pass false to hide the placeholder icon .                  |
 | dynamicPlaceholderIcon | `Boolean`        | false              | pass true, if you want to show the dynamic placeholder icon from your option object only .              |
 | showDropdownIcon       | `Boolean`        | true               | To hide and show the dropdown icon of select component.                                                 |
+| arrowPosition          | `Number`         | 50                 | Popover arrow position for X axis.                                                                      |
+| color                  | `String`         | black              | color type like primary,secondary,grey,black.                                                           |
+| size                   | `String`         | md                 | size like sm,md                                                                                         |
+| theme                  | `String`         | muted              | theme type like solid, outlined, muted                                                                  |
 
 ## Slots
 

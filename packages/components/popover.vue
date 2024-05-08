@@ -69,6 +69,10 @@ const props = defineProps({
     type: String,
     default: "outlined",
   },
+  arrowPosition: {
+    type: [Number, String],
+    default: 50,
+  },
 });
 
 // Using CVA from button.js to generate the class of button variation.
@@ -91,6 +95,10 @@ const counterClass = computed(() => {
     })
   );
 });
+
+const popoverArrowPosition = computed(() => {
+  return `${props.arrowPosition}px`;
+});
 </script>
 <style lang="scss">
 .popover-shadow {
@@ -104,8 +112,9 @@ const counterClass = computed(() => {
     width: 20px;
     height: 20px;
     left: auto;
-    left: 50px;
-    top: -5px;
+    left: v-bind(popoverArrowPosition);
+    top: -8px;
+    z-index: -1;
 
     /* Natural/White */
 

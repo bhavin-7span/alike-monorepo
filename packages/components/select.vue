@@ -1,6 +1,6 @@
 <template>
   <Popover
-    popover-class="top-16 popover-shadow py-4 rounded-xs"
+    popover-class="top-[70px] popover-shadow py-4 rounded-xs"
     :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :placeholder="placeholder"
     :selected-value="selectedValue?.label"
@@ -10,6 +10,7 @@
     :color="color"
     :size="size"
     :theme="theme"
+    :arrow-position="arrowPosition"
   >
     <template #default="{ close }">
       <RadioGroup
@@ -112,6 +113,10 @@ const props = defineProps({
   theme: {
     type: String,
     default: "outlined",
+  },
+  arrowPosition: {
+    type: [Number, String],
+    default: 80,
   },
 });
 

@@ -26,7 +26,7 @@
           <HstCheckbox v-model="state.loading" title="isLoading" />
           <HstCheckbox v-model="state.iconAfter" title="iconAfter" />
           <HstCheckbox v-model="state.disabled" title="disabled" />
-          <HstText v-model="state.count" title="count" />
+          <HstNumber v-model="state.count" title="count" />
           <HstText v-model="state.tag" title="tag" />
           <HstText v-model="state.href" title="href" />
           <HstText v-model="state.to" title="to" />
@@ -73,6 +73,7 @@ const shapes = ["rounded", "circle"];
 | ---------- | --------------- | ------------- | ----------------------------------------------------------------------- |
 | color      | `String`        | primary       | color type like primary, secondary, black.                              |
 | label      | `String`        |               | label text.                                                             |
+| count      | `Number`        |               | Show count in button.                                                   |
 | icon       | `String`        |               | Enter the icon name.                                                    |
 | iconAfter  | `Boolean`       | false         | to move the icon to right or left of label                              |
 | isLoading  | `Boolean`       | false         | Toggle Loading state of button                                          |

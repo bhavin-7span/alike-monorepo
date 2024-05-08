@@ -34,12 +34,7 @@ export const popover = cva(
       },
       theme: {
         solid: ["text-white"],
-        outlined: [
-          "bg-opacity-0",
-          "border",
-          "hover:bg-opacity-0",
-          "border-grey-400",
-        ],
+        outlined: ["bg-white", "border", "hover:bg-white", "border-grey-400"],
         link: ["bg-transparent", "hover:bg-transparent", "border-none"],
         muted: [""],
       },
