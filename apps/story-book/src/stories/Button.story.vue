@@ -1,7 +1,7 @@
 <template>
   <Story auto-props-disabled>
     <Button
-      label="Button Label"
+      :label="state.label"
       icon="AwIconCurrencyInr"
       :theme="state.theme"
       :tag="state.tag"
@@ -18,13 +18,14 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstSelect v-model="state.size" title="Size" :options="sizes" />
-          <HstSelect v-model="state.color" title="Color" :options="colors" />
-          <HstSelect v-model="state.theme" title="Theme" :options="themes" />
+          <HstText v-model="state.label" title="label" />
+          <HstSelect v-model="state.color" title="color" :options="colors" />
+          <HstSelect v-model="state.size" title="size" :options="sizes" />
+          <HstSelect v-model="state.theme" title="theme" :options="themes" />
           <HstSelect v-model="state.shape" title="shape" :options="shapes" />
-          <HstCheckbox v-model="state.loading" title="Loading" />
-          <HstCheckbox v-model="state.iconAfter" title="Icon After" />
-          <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstCheckbox v-model="state.loading" title="isLoading" />
+          <HstCheckbox v-model="state.iconAfter" title="iconAfter" />
+          <HstCheckbox v-model="state.disabled" title="disabled" />
           <HstText v-model="state.count" title="count" />
           <HstText v-model="state.tag" title="tag" />
           <HstText v-model="state.href" title="href" />
@@ -39,6 +40,7 @@ import Button from "components/button.vue";
 import { reactive } from "vue";
 
 const state = reactive({
+  label: "Button Label",
   color: "primary",
   theme: "solid",
   size: "md",

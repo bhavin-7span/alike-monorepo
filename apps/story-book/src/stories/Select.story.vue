@@ -21,28 +21,25 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstText v-model="state.placeholder" title="Placeholder" />
-          <HstText v-model="state.selectedIcon" title="Selected Icon" />
+          <HstText v-model="state.placeholder" title="placeholder" />
+          <HstText v-model="state.selectedIcon" title="SelectedIcon" />
           <HstText
             type="number"
             v-model="state.placeholderIcon"
-            title="Placeholder Icon"
+            title="placeholderIcon"
           />
-          <HstText v-model="state.icon" title="Icon (default)" />
-          <HstText type="number" v-model="state.count" title="Show Count" />
-          <HstCheckbox
-            v-model="state.showOptionIcon"
-            title="Show option Icon"
-          />
+          <HstText v-model="state.icon" title="icon (default)" />
+          <HstText type="number" v-model="state.count" title="count" />
+          <HstCheckbox v-model="state.showOptionIcon" title="showOptionIcon" />
           <HstCheckbox
             v-model="state.dynamicPlaceholderIcon"
-            title="Placeholder Icon from option"
+            title="dynamicPlaceholderIcon"
           />
-          <HstCheckbox v-model="state.iconAfter" title="Icon After" />
-          <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstCheckbox v-model="state.iconAfter" title="iconAfter" />
+          <HstCheckbox v-model="state.disabled" title="disabled" />
           <HstCheckbox
             v-model="state.showDropdownIcon"
-            title="Show Dropdown Icon"
+            title="showDropdownIcon"
           />
         </template>
       </ControlGroup>

@@ -21,13 +21,13 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstSelect v-model="state.type" title="Type" :options="types" />
+          <HstSelect v-model="state.type" title="type" :options="types" />
           <HstSelect
             v-model="state.color"
             title="color"
             :options="colorOptions"
           />
-          <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstCheckbox v-model="state.disabled" title="disabled" />
         </template>
       </ControlGroup>
     </template>
@@ -106,8 +106,9 @@ const cities = reactive([
 
 ## Events
 
-| Name              | Data   | Description                                  |
-| ----------------- | ------ | -------------------------------------------- |
-| update:modelValue | value  | emit value of selected option. (Use v-model) |
-| change            | object | emit full object (option).                   |
+| Name              | Data   | Description                                   |
+| ----------------- | ------ | --------------------------------------------- |
+| update:modelValue | value  | emit value of selected options. (Use v-model) |
+| change            | object | emit full object (options).                   |
+| input             | object | emit changed single full object (option).     |
 </docs>

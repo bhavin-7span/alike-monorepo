@@ -15,10 +15,10 @@
         <template #props>
           <HstSelect
             v-model="state.color"
-            title="Color"
+            title="color"
             :options="colorOptions"
           />
-          <HstCheckbox v-model="state.disabled" title="Disabled" />
+          <HstCheckbox v-model="state.disabled" title="disabled" />
         </template>
       </ControlGroup>
     </template>
@@ -36,7 +36,7 @@ const state = reactive({
 
 const city = ref(null);
 
-const colorOptions = ["primary", "secondary", "black"];
+const colorOptions = ["primary", "black"];
 
 const cities = reactive([
   {
@@ -81,7 +81,7 @@ const cities = reactive([
 | type          | `String`  | checkbox      | if enter type radiobox it will react like radio box group.                                  |
 | options       | `Array`   | []            | Array of options.                                                                           |
 | disabled      | `Boolean` | false         | radio-group will be disabled.                                                               |
-| color         | `String`  | primary       | radio-icon color ex. primary,secondary.                                                     |
+| color         | `String`  | primary       | radio-icon color ex. primary,black.                                                         |
 | changeOnClick | `Boolean` | true          | if false, value will not change on click. (we need it in radio-card for other button click) |
 
 ## Slots

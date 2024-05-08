@@ -11,10 +11,10 @@
     <template #controls>
       <ControlGroup>
         <template #props>
-          <HstText v-model="state.placeholder" title="Placeholder" />
-          <HstText v-model="state.selectedValue" title="Selected Value" />
-          <HstText v-model="state.count" title="Count" />
-          <HstText v-model="state.popoverClass" title="Popover Class" />
+          <HstText v-model="state.placeholder" title="placeholder" />
+          <HstText v-model="state.selectedValue" title="selectedValue" />
+          <HstText v-model="state.count" title="count" />
+          <HstText v-model="state.popoverClass" title="popoverClass" />
         </template>
       </ControlGroup>
     </template>
