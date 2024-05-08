@@ -15,7 +15,7 @@
         :isActive="option.value == modelValue"
         :value="modelValue"
       >
-        <div class="flex gap-1">
+        <div class="flex items-center gap-1">
           <Icon
             v-if="option.value == modelValue"
             name="AwIconRadioChecked"
