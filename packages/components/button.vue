@@ -38,7 +38,7 @@
 </template>
 <script setup>
 import { computed, defineProps } from "vue";
-import { button, counter } from "./button.js";
+import { button, counter } from "./cva-css/button.js";
 
 import { twMerge } from "tailwind-merge";
 //*** Why tailwind-merge ?

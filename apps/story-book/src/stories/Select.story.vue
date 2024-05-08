@@ -14,6 +14,9 @@
         :placeholder-icon="state.placeholderIcon"
         :dynamic-placeholder-icon="state.dynamicPlaceholderIcon"
         :show-dropdown-icon="state.showDropdownIcon"
+        :theme="state.theme"
+        :color="state.color"
+        :size="state.size"
         name="currency-select"
       />
     </div>
@@ -21,6 +24,9 @@
     <template #controls>
       <ControlGroup>
         <template #props>
+          <HstSelect v-model="state.color" title="color" :options="colors" />
+          <HstSelect v-model="state.size" title="size" :options="sizes" />
+          <HstSelect v-model="state.theme" title="theme" :options="themes" />
           <HstText v-model="state.placeholder" title="placeholder" />
           <HstText v-model="state.selectedIcon" title="SelectedIcon" />
           <HstText
@@ -56,6 +62,9 @@ const state = reactive({
   placeholder: "Select Currency",
   selectedIcon: "AwIconRadioChecked",
   icon: "AwIconRadioBlank",
+  color: "black",
+  theme: "outlined",
+  size: "md",
   count: "",
   placeholderIcon: "AwIconFilter",
   dynamicPlaceholderIcon: false,
@@ -66,6 +75,10 @@ const state = reactive({
 });
 
 const selectedCurrency = ref();
+
+const sizes = ["md", "sm"];
+const colors = ["primary", "secondary", "grey", "black"];
+const themes = ["solid", "outlined", "muted", "link"];
 
 const currencies = reactive([
   {

@@ -1,8 +1,6 @@
 <template>
   <Popover v-slot="{ open }" class="relative">
-    <PopoverButton
-      class="flex items-center py-3 gap-3 px-4 justify-between border-2 border-grey-500 hover:border-black rounded-full outline-none"
-    >
+    <PopoverButton :class="popoverClasses">
       <div class="flex gap-2 items-center">
         <Icon v-if="popoverIcon" :name="popoverIcon" class="text-lg" />
         <p v-if="selectedValue" class="text-base font-medium">
@@ -12,10 +10,7 @@
           {{ placeholder }}
         </p>
       </div>
-      <div
-        v-if="count"
-        class="rounded-full h-6 p-2 min-w-6 flex items-center justify-center bg-black text-white"
-      >
+      <div v-if="count" :class="counterClass">
         {{ count }}
       </div>
       <Icon
@@ -39,7 +34,11 @@
 </template>
 
 <script setup>
+import { computed } from "vue";
+import { twMerge } from "tailwind-merge";
+
 import Icon from "./icon.vue";
+import { popover, counter } from "./cva-css/popover.js";
 import { Popover, PopoverButton, PopoverPanel } from "@headlessui/vue";
 
 const props = defineProps({
@@ -58,6 +57,39 @@ const props = defineProps({
     default: true,
   },
   selectedValue: [String, Number],
+  color: {
+    type: String,
+    default: "black",
+  },
+  size: {
+    type: String,
+    default: "md",
+  },
+  theme: {
+    type: String,
+    default: "outlined",
+  },
+});
+
+// Using CVA from button.js to generate the class of button variation.
+const popoverClasses = computed(() => {
+  return twMerge(
+    popover({
+      color: props.color,
+      size: props.size,
+      theme: props.theme,
+    })
+  );
+});
+
+const counterClass = computed(() => {
+  return twMerge(
+    counter({
+      color: props.color,
+      size: props.size,
+      theme: props.theme,
+    })
+  );
 });
 </script>
 <style lang="scss">

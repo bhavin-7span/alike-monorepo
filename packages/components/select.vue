@@ -1,12 +1,15 @@
 <template>
   <Popover
+    popover-class="top-16 popover-shadow py-4 rounded-xs"
+    :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :placeholder="placeholder"
     :selected-value="selectedValue?.label"
-    :class="disabled ? 'pointer-events-none opacity-50' : ''"
     :count="count"
     :popover-icon="popoverIcon"
     :show-dropdown-icon="showDropdownIcon"
-    popover-class="top-16 popover-shadow py-4 rounded-xs"
+    :color="color"
+    :size="size"
+    :theme="theme"
   >
     <template #default="{ close }">
       <RadioGroup
@@ -97,6 +100,18 @@ const props = defineProps({
   showDropdownIcon: {
     type: Boolean,
     default: true,
+  },
+  color: {
+    type: String,
+    default: "black",
+  },
+  size: {
+    type: String,
+    default: "md",
+  },
+  theme: {
+    type: String,
+    default: "outlined",
   },
 });
 
