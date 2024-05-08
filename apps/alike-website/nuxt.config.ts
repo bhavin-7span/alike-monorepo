@@ -1,6 +1,6 @@
 import apollo from "./nuxt-config/apollo";
 import env from "./env";
-
+const directusUrl = "https://directus.alike.host";
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/css/style.css"],
@@ -11,11 +11,15 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/apollo", "@nuxtjs/i18n"],
+  modules: ["@nuxtjs/apollo", "@nuxtjs/i18n", "nuxt-directus"],
   runtimeConfig: {
     public: {
+      directusUrl: directusUrl,
       ...env,
     },
+  },
+  directus: {
+    url: directusUrl,
   },
   i18n: {
     lazy: true,

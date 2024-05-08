@@ -17,6 +17,7 @@
     "components": "workspace:*",
     "icons": "workspace:*",
     "nuxt": "^3.11.2",
+    "nuxt-directus": "^5.6.1",
     "postcss": "^8.4.38",
     "style": "workspace:*",
     "swiper": "^11.1.1",
