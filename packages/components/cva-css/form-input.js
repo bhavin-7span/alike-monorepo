@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-export const button = cva(
+export const formInput = cva(
   // default class will applied on every button
   [""],
   {
@@ -14,22 +14,27 @@ export const button = cva(
       },
       theme: {
         solid: ["text-white"],
-        outlined: ["bg-opacity-0", "border", "hover:text-white"],
-        link: ["bg-transparent", "hover:bg-transparent", "border-none"],
+        outlined: [""],
+        link: [""],
+        muted: [
+          "focus-within:border",
+          "focus-within:border-primary-500",
+          "focus-within:bg-white",
+        ],
       },
       shape: {
-        rounded: [""],
-        circler: [""],
+        rounded: ["rounded-full"],
+        square: ["rounded"],
       },
     },
     compoundVariants: [
       // Making button circle in type circle with common padding on X & Y axis
-      {
-        color: ["primary", "secondary", "grey", "black"],
-        shape: "circle",
-        size: "sm",
-        class: "p-2",
-      },
+      // {
+      //   color: ["primary", "secondary", "grey", "black"],
+      //   shape: "circle",
+      //   size: "sm",
+      //   class: "p-2",
+      // },
     ],
 
     // Default class variation.
