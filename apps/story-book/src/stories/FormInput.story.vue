@@ -15,6 +15,7 @@
         :shape="state.shape"
         :before="state.before"
         :after="state.after"
+        v-model="fname"
       >
         <template #after>
           <div class="m-1 p-2 text-white bg-grey-700 rounded-full">
@@ -22,6 +23,7 @@
           </div>
         </template>
       </FormInput>
+      <p class="mt-10">Input: {{ fname }}</p>
     </div>
     <template #controls>
       <ControlGroup>

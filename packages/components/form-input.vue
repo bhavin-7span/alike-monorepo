@@ -23,6 +23,8 @@
         :placeholder="placeholder"
         :id="id"
         :name="name"
+        :value="modelValue"
+        @input="handleInput($event)"
         class="focus:outline-none text-current h-full w-full bg-transparent"
       />
     </div>
@@ -37,6 +39,8 @@ import { formInput } from "./cva-css/form-input.js";
 import { twMerge } from "tailwind-merge";
 import Icon from "./icon.vue";
 
+const emit = defineEmits(["update:modelValue"]);
+
 const props = defineProps({
   type: {
     type: String,
@@ -47,13 +51,17 @@ const props = defineProps({
   id: [String, Number],
   name: [String, Number],
   icon: String,
-  direction: String,
+  direction: {
+    type: String,
+    default: "row",
+  },
   size: String,
   color: String,
   theme: String,
   shape: String,
   before: [String, Number],
   after: [String, Number],
+  modelValue: [String, Number],
 });
 
 const inputCss = computed(() => {
@@ -66,6 +74,10 @@ const inputCss = computed(() => {
     })
   );
 });
+
+function handleInput($event) {
+  emit("update:modelValue", $event.target.value);
+}
 </script>
 <style lang="scss">
 .input-px-4 {
