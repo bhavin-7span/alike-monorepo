@@ -1,57 +1,40 @@
 <template>
   <Story auto-props-disabled>
     <div class="h-96 p-10 w-[500px]">
-      <FormInput
-        :type="state.type"
-        :label="state.label"
-        :placeholder="state.placeholder"
-        :id="state.id"
-        :name="state.name"
-        :icon="state.icon"
-        :direction="state.direction"
-        :size="state.size"
-        :color="state.color"
-        :theme="state.theme"
-        :shape="state.shape"
-        :before="state.before"
-        :after="state.after"
-        v-model="fname"
+      <Form
+        @submit="handleSubmit($event)"
+        autocomplete="off"
+        v-slot="{ errors }"
       >
-        <template #after>
-          <div class="m-1 p-2 text-white bg-grey-700 rounded-full">
-            <Icon name="AwIconSearch" class="text-xl" />
-          </div>
-        </template>
-      </FormInput>
+        <Field
+          v-slot="{ field }"
+          rules="required"
+          name="fname"
+          :value="fname"
+          type="text"
+          class="w-full field"
+        >
+          <Input name="fname" type="text" v-bind="field" v-model="fname" />
+        </Field>
+        {{ errors }}
+        <Button type="submit" size="sm" theme="outlined" icon="AwIconArrowRight"
+          >submit</Button
+        >
+      </Form>
       <p class="mt-10">Input: {{ fname }}</p>
     </div>
     <template #controls>
       <ControlGroup>
-        <template #props>
-          <HstSelect v-model="state.size" title="size" :options="sizes" />
-          <HstSelect v-model="state.color" title="color" :options="colors" />
-          <HstSelect v-model="state.theme" title="theme" :options="themes" />
-          <HstSelect v-model="state.shape" title="shape" :options="shapes" />
-          <HstSelect
-            v-model="state.direction"
-            title="direction"
-            :options="directions"
-          />
-
-          <HstCheckbox v-model="state.disabled" title="disabled" />
-          <HstText v-model="state.type" title="type" />
-          <HstText v-model="state.label" title="label" />
-          <HstText v-model="state.placeholder" title="placeholder" />
-          <HstText v-model="state.icon" title="icon" />
-          <HstText v-model="state.before" title="before" />
-          <HstText v-model="state.after" title="after" />
-        </template>
+        <template #props> </template>
       </ControlGroup>
     </template>
   </Story>
 </template>
 <script setup>
-import FormInput from "components/form-input.vue";
+import Input from "components/input.vue";
+import { Form } from "vee-validate";
+import { Field } from "vee-validate";
+import Button from "components/button.vue";
 import { reactive } from "vue";
 import { ref } from "vue";
 
@@ -79,6 +62,10 @@ const colors = ["grey"];
 const themes = ["outlined-light", "outlined", "muted"];
 const shapes = ["rounded", "square"];
 const directions = ["row", "flex-row-reverse"];
+
+function handleSubmit(value) {
+  console.log("form submitted", value);
+}
 </script>
 <style scoped></style>
 <docs lang="md">

@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "components": "workspace:*",
+    "plugins": "workspace:*",
     "icons": "workspace:*",
     "style": "workspace:*",
     "vue": "^3.4.21",

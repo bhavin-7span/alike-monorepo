@@ -23,6 +23,7 @@
         :placeholder="placeholder"
         :id="id"
         :name="name"
+        v-bind="field"
         :value="modelValue"
         @input="handleInput($event)"
         class="focus:outline-none text-current h-full w-full bg-transparent"
@@ -62,6 +63,7 @@ const props = defineProps({
   before: [String, Number],
   after: [String, Number],
   modelValue: [String, Number],
+  field: Object,
 });
 
 const inputCss = computed(() => {
