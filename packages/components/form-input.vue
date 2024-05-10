@@ -1,16 +1,34 @@
 <template>
-  <label v-if="label" :for="id">{{ label }}</label>
+  <slot name="label">
+    <label v-if="label" :for="id" class="text-base font-semibold mb-2">{{
+      label
+    }}</label>
+  </slot>
   <div :class="inputCss">
-    <div class="h-full flex items-center gap-3" :class="direction">
-      <Icon v-if="icon || true" :name="'AwIconCurrencyInr'" class="text-lg" />
+    <slot name="before">
+      <p v-if="before" class="pl-3">{{ before }}</p>
+    </slot>
+    <div
+      class="h-full input-wrapper w-full flex items-center"
+      :class="{
+        [direction]: true,
+        'gap-2': icon,
+      }"
+    >
+      <slot name="icon">
+        <Icon v-if="icon" :name="icon" class="text-lg" />
+      </slot>
       <input
         :type="type"
         :placeholder="placeholder"
         :id="id"
         :name="name"
-        class="focus:outline-none h-full w-full bg-transparent"
+        class="focus:outline-none text-current h-full w-full bg-transparent"
       />
     </div>
+    <slot name="after">
+      <p v-if="after" class="pr-3">{{ after }}</p>
+    </slot>
   </div>
 </template>
 <script setup>
@@ -34,6 +52,8 @@ const props = defineProps({
   color: String,
   theme: String,
   shape: String,
+  before: [String, Number],
+  after: [String, Number],
 });
 
 const inputCss = computed(() => {
@@ -47,3 +67,25 @@ const inputCss = computed(() => {
   );
 });
 </script>
+<style lang="scss">
+.input-px-4 {
+  .input-wrapper {
+    @apply px-4;
+  }
+}
+.input-px-6 {
+  .input-wrapper {
+    @apply px-6;
+  }
+}
+.placeholder-grey-400 {
+  input {
+    @apply placeholder:text-grey-400;
+  }
+}
+.placeholder-grey-500 {
+  input {
+    @apply placeholder:text-grey-500;
+  }
+}
+</style>

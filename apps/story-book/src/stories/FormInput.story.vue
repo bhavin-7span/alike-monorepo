@@ -13,7 +13,15 @@
         :color="state.color"
         :theme="state.theme"
         :shape="state.shape"
-      />
+        :before="state.before"
+        :after="state.after"
+      >
+        <template #after>
+          <div class="m-1 p-2 text-white bg-grey-700 rounded-full">
+            <Icon name="AwIconSearch" class="text-xl" />
+          </div>
+        </template>
+      </FormInput>
     </div>
     <template #controls>
       <ControlGroup>
@@ -23,16 +31,18 @@
           <HstSelect v-model="state.theme" title="theme" :options="themes" />
           <HstSelect v-model="state.shape" title="shape" :options="shapes" />
           <HstSelect
-            v-model="state.color"
-            title="color"
-            :options="colorOptions"
+            v-model="state.direction"
+            title="direction"
+            :options="directions"
           />
+
           <HstCheckbox v-model="state.disabled" title="disabled" />
           <HstText v-model="state.type" title="type" />
           <HstText v-model="state.label" title="label" />
           <HstText v-model="state.placeholder" title="placeholder" />
           <HstText v-model="state.icon" title="icon" />
-          <HstText v-model="state.direction" title="direction" />
+          <HstText v-model="state.before" title="before" />
+          <HstText v-model="state.after" title="after" />
         </template>
       </ControlGroup>
     </template>
@@ -51,30 +61,30 @@ const state = reactive({
   placeholder: "First Name",
   id: "fname",
   name: "fname",
-  icon: "AwIconInr",
+  icon: "AwIconCurrencyInr",
   direction: "row",
   size: "md",
   color: "grey",
   theme: "muted",
   shape: "rounded",
+  disabled: false,
+  before: null,
+  after: null,
 });
 
 const sizes = ["md", "sm"];
-const colors = ["primary", "secondary", "grey", "black"];
-const themes = ["solid", "outlined", "muted", "link"];
+const colors = ["grey"];
+const themes = ["outlined-light", "outlined", "muted"];
 const shapes = ["rounded", "square"];
+const directions = ["row", "flex-row-reverse"];
 </script>
 <style scoped></style>
 <docs lang="md">
-## Props
+## slot
 
-| Name | Type     | Default Value | Description    |
-| ---- | -------- | ------------- | -------------- |
-| name | `String` | radio-group   | name of group. |
-
-## Events
-
-| Name              | Data  | Description                                  |
-| ----------------- | ----- | -------------------------------------------- |
-| update:modelValue | array | emit value of selected option. (Use v-model) |
+| Name Description | description                              |
+| ---------------- | ---------------------------------------- |
+| icon             | render anything at place of icon         |
+| before           | add anything before (left side) of input |
+| after            | add anything after (right side) of input |
 </docs>
