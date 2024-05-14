@@ -3,6 +3,7 @@ import ControlGroup from "./components/control-group.vue";
 import Icon from "components/icon.vue";
 import validations from "plugins/vee-validate.js";
 
+// Registering vee-validate rules.
 validations();
 
 export const register = (appInstance) => {

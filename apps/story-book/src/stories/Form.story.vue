@@ -6,22 +6,31 @@
         autocomplete="off"
         v-slot="{ errors }"
       >
-        <Field
-          v-slot="{ field }"
-          rules="required"
+        <Input
           name="fname"
-          :value="fname"
-          type="text"
-          class="w-full field"
-        >
-          <Input name="fname" type="text" v-bind="field" v-model="fname" />
-        </Field>
-        {{ errors }}
-        <Button type="submit" size="sm" theme="outlined" icon="AwIconArrowRight"
+          rules="required"
+          :error="errors.fname"
+          v-model="fname"
+        />
+        <RadioGroup
+          v-model="city"
+          :options="cities"
+          rules="required"
+          name="city"
+          :error="errors.city"
+          class="grid grid-cols-2 gap-3"
+        />
+        <Button
+          type="submit"
+          class="mt-2"
+          size="sm"
+          theme="outlined"
+          icon="AwIconArrowRight"
           >submit</Button
         >
       </Form>
       <p class="mt-10">Input: {{ fname }}</p>
+      <p class="mt-10">City: {{ city }}</p>
     </div>
     <template #controls>
       <ControlGroup>
@@ -32,6 +41,7 @@
 </template>
 <script setup>
 import Input from "components/input.vue";
+import RadioGroup from "components/radio-group.vue";
 import { Form } from "vee-validate";
 import { Field } from "vee-validate";
 import Button from "components/button.vue";
@@ -39,6 +49,7 @@ import { reactive } from "vue";
 import { ref } from "vue";
 
 const fname = ref(null);
+const city = ref(null);
 
 const state = reactive({
   type: "text",
@@ -57,6 +68,39 @@ const state = reactive({
   after: null,
 });
 
+const cities = reactive([
+  {
+    name: "Ahmedabad",
+    label: "City-Ahmedabad",
+    id: 1,
+    value: 11,
+  },
+  {
+    name: "Surat",
+    label: "City-Surat",
+    id: 2,
+    value: 21,
+  },
+  {
+    name: "Vadodara",
+    label: "City-Vadodara",
+    id: 3,
+    value: 31,
+  },
+  {
+    name: "Gandhinagar",
+    label: "City-Gandhinagar",
+    id: 4,
+    value: 41,
+  },
+  {
+    name: "Rajkot",
+    label: "City-Rajkot",
+    id: 5,
+    value: 51,
+  },
+]);
+
 const sizes = ["md", "sm"];
 const colors = ["grey"];
 const themes = ["outlined-light", "outlined", "muted"];
@@ -68,12 +112,3 @@ function handleSubmit(value) {
 }
 </script>
 <style scoped></style>
-<docs lang="md">
-## slot
-
-| Name Description | description                              |
-| ---------------- | ---------------------------------------- |
-| icon             | render anything at place of icon         |
-| before           | add anything before (left side) of input |
-| after            | add anything after (right side) of input |
-</docs>

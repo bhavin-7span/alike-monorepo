@@ -82,6 +82,13 @@ const directions = ["row", "flex-row-reverse"];
 </script>
 <style scoped></style>
 <docs lang="md">
+## Props
+
+| Name  | Type     | Default Value | Description                            |
+| ----- | -------- | ------------- | -------------------------------------- |
+| rules | `String` | -             | name of vee-validate rules.            |
+| error | `String` | -             | message to show on vee-validate error. |
+
 ## slot
 
 | Name Description | description                              |

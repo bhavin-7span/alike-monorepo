@@ -3,35 +3,57 @@
     <button
       v-for="(option, index) in options"
       :key="index"
+      type="button"
       @click="updateValue(option)"
       :disabled="disabled"
       class="text-start outline-none border-none"
     >
-      <input type="radio" class="hidden" :name="name" :value="option" />
-      <slot
-        name="default"
-        :data="option"
-        :index="index"
-        :isActive="option.value == modelValue"
+      <Field
+        v-slot="{ field }"
+        :rules="rules"
+        :name="name"
         :value="modelValue"
+        type="radio"
       >
-        <div class="flex items-center gap-1">
-          <Icon
-            v-if="option.value == modelValue"
-            name="AwIconRadioChecked"
-            class="text-lg"
-            :class="colorClass"
-          />
-          <Icon v-else name="AwIconRadioBlank" class="text-grey-500 text-lg" />
-          <p>{{ option.label }}</p>
-        </div>
-      </slot>
+        <input
+          type="radio"
+          v-bind="field"
+          class="hidden"
+          :name="name"
+          :value="option.value"
+        />
+        <slot
+          name="default"
+          :data="option"
+          :index="index"
+          :isActive="option.value == modelValue"
+          :value="modelValue"
+        >
+          <div class="flex items-center gap-1">
+            <Icon
+              v-if="option.value == modelValue"
+              name="AwIconRadioChecked"
+              class="text-lg"
+              :class="colorClass"
+            />
+            <Icon
+              v-else
+              name="AwIconRadioBlank"
+              class="text-grey-500 text-lg"
+            />
+            <p>{{ option.label }}</p>
+          </div>
+        </slot>
+      </Field>
     </button>
+    <p v-if="error" class="text-sm mt-1 text-danger-500">{{ error }}</p>
   </client-only>
 </template>
 <script setup>
 import Icon from "./icon.vue";
 import { computed } from "vue";
+import { Field } from "vee-validate";
+
 const emit = defineEmits(["change", "update:modelValue"]);
 const props = defineProps({
   name: {
@@ -55,6 +77,8 @@ const props = defineProps({
     default: "primary",
   },
   modelValue: [String, Number, Boolean, Object],
+  rules: String,
+  error: String,
 });
 
 const colorClass = computed(() => {
