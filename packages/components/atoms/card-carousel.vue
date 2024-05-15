@@ -6,6 +6,7 @@
       :keyboard="{
         enabled: false,
       }"
+      :autoplay="autoplay ? sliderAutoplay : false"
       :pagination="{
         clickable: true,
       }"
@@ -30,10 +31,18 @@
 
 // Import Swiper Vue.js components
 import { Swiper, SwiperSlide } from "swiper/vue";
-import { Keyboard, Pagination, Navigation } from "swiper/modules";
+import { Keyboard, Autoplay, Pagination, Navigation } from "swiper/modules";
 
-const modules = [Pagination, Navigation];
-
+const props = defineProps({
+  autoplay: {
+    type: Boolean,
+  },
+});
+const modules = [Pagination, Navigation, Autoplay];
+const sliderAutoplay = {
+  delay: 2000,
+  disableOnInteraction: false,
+};
 const images = [
   "https://alike-asset.b-cdn.net/abudhabi/emirates-park.png",
   "https://alike-asset.b-cdn.net/abudhabi/desert-safari.png",
