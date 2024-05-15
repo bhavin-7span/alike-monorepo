@@ -2,7 +2,7 @@ import Section from "components/common/section.vue";
 import AwHeading2 from "components/common/aw-heading2.vue";
 
 import Button from "components/button.vue";
-import FormInput from "components/form-input.vue";
+import FormInput from "components/input.vue";
 
 import icons from "icons/icons.js";
 
