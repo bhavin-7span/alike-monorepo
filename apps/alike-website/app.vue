@@ -1,8 +1,6 @@
 <template>
   <div class="font-rethink-sans">
-    <NuxtLayout>
-      <NuxtLoadingIndicator />
-      <NuxtPage />
-    </NuxtLayout>
+    <NuxtLoadingIndicator />
+    <NuxtPage />
   </div>
 </template>

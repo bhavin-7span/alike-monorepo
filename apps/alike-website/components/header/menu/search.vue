@@ -36,7 +36,6 @@
   </div>
 </template>
 <script setup>
-import { ref } from "Vue";
 import { hotels } from "~/data/menu/common.js";
 
 const searchString = ref("");

@@ -1,5 +1,5 @@
 <template>
-  <div class="divide-y divide-black">
+  <div v-if="items">
     <component
       :is="section.component"
       v-for="section in items"
@@ -11,7 +11,7 @@
 </template>
 
 <script setup>
-defineProps({
+const props = defineProps({
   items: {
     type: Array,
     default: () => [],

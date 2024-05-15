@@ -20,6 +20,11 @@ export default defineNuxtConfig({
       ...env,
     },
   },
+  image: {
+    bunny: {
+      baseURL: "https://alike-asset.b-cdn.net/vue-images",
+    },
+  },
   directus: {
     url: directusUrl,
   },
