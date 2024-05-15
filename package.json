@@ -12,11 +12,13 @@
   "license": "ISC",
   "dependencies": {
     "@headlessui/vue": "^1.7.21",
+    "@nuxt/image": "^1.6.0",
     "@vee-validate/rules": "^4.12.8",
     "@vee-validate/zod": "^4.12.8",
     "class-variance-authority": "^0.7.0",
     "postcss": "^8.4.38",
     "sass": "^1.77.0",
+    "swiper": "^11.1.1",
     "tailwind-merge": "^2.3.0",
     "tailwindcss": "^3.4.3",
     "vee-validate": "^4.12.8",
