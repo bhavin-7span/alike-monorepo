@@ -1,12 +1,12 @@
 <template>
   <div v-if="items && pageId" class="sections-here">
-    <component
-      :is="section.component"
-      v-for="section in items"
-      :key="`${pageId}--${section.itemId}`"
-      :collection-name="section.collectionName"
-      :item-id="section.itemId"
-    />
+    <template v-for="section in items" :key="`${pageId}--${section.itemId}`">
+      <component
+        :is="section.component"
+        :collection-name="section.collectionName"
+        :item-id="section.itemId"
+      />
+    </template>
   </div>
 </template>
 

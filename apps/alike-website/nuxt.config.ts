@@ -24,6 +24,9 @@ export default defineNuxtConfig({
     bunny: {
       baseURL: "https://alike-asset.b-cdn.net/vue-images",
     },
+    directus: {
+      baseURL: "https://craft.alike.host/assets",
+    },
   },
   directus: {
     url: directusUrl,

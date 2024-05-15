@@ -1,1 +1,3 @@
-<template></template>
+<template>
+  <AwSection> Chana </AwSection>
+</template>
