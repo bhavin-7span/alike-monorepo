@@ -1,9 +1,5 @@
 <template>
-  <section
-    class="py-16 md:py-28"
-    :class="`section-${name}`"
-    :id="`section-${name}`"
-  >
+  <section :class="`section-${name}`" :id="`section-${name}`">
     <div class="container mx-auto" :class="_class">
       <slot />
     </div>

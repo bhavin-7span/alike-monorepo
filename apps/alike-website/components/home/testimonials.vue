@@ -1,7 +1,7 @@
 <template>
-  <Section
+  <AwSection
     name="testimonials"
-    class="bg-primary-50"
+    class="bg-primary-50 py-16 md:py-28"
     _class="flex items-center justify-center flex-col"
   >
     <AwHeading2 class="text-center max-w-sm md:max-w-3xl">
@@ -13,5 +13,5 @@
     >
       View All
     </button>
-  </Section>
+  </AwSection>
 </template>

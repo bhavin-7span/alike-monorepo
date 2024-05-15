@@ -4,7 +4,7 @@ const directusUrl = "https://craft.alike.host";
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/css/style.css"],
-  plugins: [{ src: "~/plugins/components.js" }],
+  plugins: [{ src: "~/plugins/components.js" }, { src: "~/plugins/server.js" }],
   postcss: {
     plugins: {
       tailwindcss: {},

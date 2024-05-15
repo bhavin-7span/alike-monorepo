@@ -1,7 +1,7 @@
 <template>
-  <Section
+  <AwSection
     name="cities"
-    class="overflow-hidden"
+    class="overflow-hidden py-16 md:py-28"
     _class="flex items-center justify-center flex-col"
   >
     <AwHeading2 class="text-center max-w-sm md:max-w-3xl">
@@ -35,7 +35,7 @@
     >
       All Cities
     </button>
-  </Section>
+  </AwSection>
 </template>
 <script setup>
 // https://source.unsplash.com/featured/267x356

@@ -1,5 +1,5 @@
 <template>
-  <Section name="mouse-hijack1" class="bg-grey-900">
+  <AwSection name="mouse-hijack1" class="bg-grey-900 py-16 md:py-28">
     <div class="flex items-center justify-center">
       <div class="w-[55%] text-center text-white">Images With Carousel</div>
       <div class="w-[45%]">
@@ -8,6 +8,6 @@
         </AwHeading2>
       </div>
     </div>
-  </Section>
+  </AwSection>
 </template>
 <script setup></script>

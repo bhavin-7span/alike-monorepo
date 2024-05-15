@@ -1,7 +1,7 @@
 <template>
-  <Section
+  <AwSection
     name="plan-trip"
-    class="overflow-hidden"
+    class="overflow-hidden py-16 md:py-28"
     _class="flex items-center justify-center flex-col"
   >
     <AwHeading2 class="text-center"> Plan your trip with Alike </AwHeading2>
@@ -11,5 +11,5 @@
     >
       Plan a Trip
     </button>
-  </Section>
+  </AwSection>
 </template>
