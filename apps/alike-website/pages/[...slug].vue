@@ -1,7 +1,7 @@
 <template>
-  <NuxtLayout>
+  <div class="slug-page">
     <Sections :items="sections" :page-id="id" />
-  </NuxtLayout>
+  </div>
 </template>
 
 <script setup>

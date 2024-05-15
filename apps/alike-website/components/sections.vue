@@ -1,5 +1,5 @@
 <template>
-  <div v-if="items">
+  <div v-if="items && pageId" class="sections-here">
     <component
       :is="section.component"
       v-for="section in items"
