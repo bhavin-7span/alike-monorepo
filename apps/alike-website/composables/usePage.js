@@ -43,19 +43,18 @@ export const usePage = async (slug) => {
   }
 
   const { getItems } = useDirectusItems();
-  const { getThumbnail: img } = useDirectusFiles();
+  // const { getThumbnail: img } = useDirectusFiles();
 
   const { data, status, error } = await useAsyncData("hydrate", () => {
     return getItems({
       collection: "pages",
       params: {
         fields: [
-          "*.*.*.*",
-          //   "id",
-          //   "path",
-          //   "sections.item.id",
-          //   "sections.collection",
-          //   "sections.item.metadata.component.name",
+          "id",
+          "path",
+          "sections.item.id",
+          "sections.collection",
+          "sections.item.metadata.section.name",
           //   "color_primary.*",
           //   "color_secondary.*",
           //   "title",
@@ -114,16 +113,16 @@ export const usePage = async (slug) => {
   /**
    * If Page is found, prepare data.
    */
-  //   const {
-  //     sections,
-  //     color_primary,
-  //     color_secondary,
-  //     id,
-  //     title,
-  //     description,
-  //     keywords,
-  //     og_image,
-  //   } = page;
+  const {
+    sections,
+    // color_primary,
+    // color_secondary,
+    id,
+    // title,
+    // description,
+    // keywords,
+    // og_image,
+  } = page;
 
   /**
    * Prepare sections to render
@@ -131,9 +130,9 @@ export const usePage = async (slug) => {
   const _sections = sections.map((section) => {
     const { item, collection } = section;
     return {
-      collectionName: collection, // Fetch the section data from this collection
-      itemId: item.id, // Use this ID to find the row from the above collection
-      component: item.metadata.component.name, // The nuxt component to use when rendering data is mentioned in this key.
+      collectionName: section.collection, // Fetch the section data from this collection
+      itemId: section.item.id, // Use this ID to find the row from the above collection
+      component: section.item.metadata?.section.name, // The nuxt component to use when rendering data is mentioned in this key.
     };
   });
 

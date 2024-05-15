@@ -1,6 +1,6 @@
 import apollo from "./nuxt-config/apollo";
 import env from "./env";
-const directusUrl = "https://directus.alike.host";
+const directusUrl = "https://craft.alike.host";
 export default defineNuxtConfig({
   devtools: { enabled: false },
   css: ["~/assets/css/style.css"],
@@ -11,7 +11,12 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/apollo", "@nuxtjs/i18n", "nuxt-directus"],
+  modules: ["@nuxtjs/apollo", "@nuxtjs/i18n", "nuxt-directus", "@nuxt/image"],
+  image: {
+    directus: {
+      baseURL: "https://craft.alike.host/directus_files",
+    },
+  },
   runtimeConfig: {
     public: {
       directusUrl: directusUrl,

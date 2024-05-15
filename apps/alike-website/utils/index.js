@@ -5,7 +5,7 @@ export const defaultProps = () => {
       required: true,
     },
     itemId: {
-      type: String,
+      type: [String, Number],
       required: true,
     },
   };

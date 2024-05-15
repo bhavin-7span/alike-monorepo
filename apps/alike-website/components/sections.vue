@@ -1,11 +1,11 @@
 <template>
   <div class="divide-y divide-black">
     <component
-      :is="section.item.metadata.component.name"
+      :is="section.component"
       v-for="section in items"
-      :key="`${pageId}--${section.id}`"
-      :collection-name="section.collection"
-      :item-id="section.id"
+      :key="`${pageId}--${section.itemId}`"
+      :collection-name="section.collectionName"
+      :item-id="section.itemId"
     />
   </div>
 </template>
