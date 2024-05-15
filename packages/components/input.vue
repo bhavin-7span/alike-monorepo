@@ -4,44 +4,35 @@
       label
     }}</label>
   </slot>
-  <Field
-    v-slot="{ field }"
-    :rules="rules"
-    :name="name"
-    :value="modelValue"
-    type="text"
-  >
-    <div :class="inputCss">
-      <slot name="before">
-        <p v-if="before" class="pl-3">{{ before }}</p>
+  <div :class="inputCss">
+    <slot name="before">
+      <p v-if="before" class="pl-3">{{ before }}</p>
+    </slot>
+    <div
+      class="h-full input-wrapper w-full flex items-center"
+      :class="{
+        [direction]: true,
+        'gap-2': icon,
+      }"
+    >
+      <slot name="icon">
+        <Icon v-if="icon" :name="icon" class="text-lg" />
       </slot>
-      <div
-        class="h-full input-wrapper w-full flex items-center"
-        :class="{
-          [direction]: true,
-          'gap-2': icon,
-        }"
-      >
-        <slot name="icon">
-          <Icon v-if="icon" :name="icon" class="text-lg" />
-        </slot>
-        <input
-          :type="type"
-          :placeholder="placeholder"
-          :id="id"
-          :name="name"
-          v-bind="field"
-          :value="modelValue"
-          @input="handleInput($event)"
-          class="focus:outline-none text-current h-full w-full bg-transparent"
-        />
-      </div>
-      <slot name="after">
-        <p v-if="after" class="pr-3">{{ after }}</p>
-      </slot>
+      <input
+        :type="type"
+        :placeholder="placeholder"
+        :id="id"
+        :name="name"
+        v-bind="field"
+        :value="modelValue"
+        @input="handleInput($event)"
+        class="focus:outline-none text-current h-full w-full bg-transparent"
+      />
     </div>
-    <p v-if="error" class="text-sm mt-1 text-danger-500">{{ error }}</p>
-  </Field>
+    <slot name="after">
+      <p v-if="after" class="pr-3">{{ after }}</p>
+    </slot>
+  </div>
 </template>
 <script setup>
 import { computed } from "vue";
@@ -73,8 +64,7 @@ const props = defineProps({
   before: [String, Number],
   after: [String, Number],
   modelValue: [String, Number],
-  error: String,
-  rules: String,
+  field: Object,
 });
 
 const inputCss = computed(() => {

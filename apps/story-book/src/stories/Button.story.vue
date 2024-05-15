@@ -2,7 +2,7 @@
   <Story auto-props-disabled>
     <Button
       :label="state.label"
-      icon="AwIconCurrencyInr"
+      :icon="state.icon"
       :theme="state.theme"
       :tag="state.tag"
       :href="state.href"
@@ -19,6 +19,7 @@
       <ControlGroup>
         <template #props>
           <HstText v-model="state.label" title="label" />
+          <HstText v-model="state.icon" title="icon" />
           <HstSelect v-model="state.color" title="color" :options="colors" />
           <HstSelect v-model="state.size" title="size" :options="sizes" />
           <HstSelect v-model="state.theme" title="theme" :options="themes" />
@@ -42,6 +43,7 @@ import { reactive } from "vue";
 const state = reactive({
   label: "Button Label",
   color: "primary",
+  icon: "AwIconCurrencyInr",
   theme: "solid",
   size: "md",
   shape: "rounded",

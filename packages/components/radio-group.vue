@@ -1,24 +1,17 @@
 <template>
-  <client-only>
-    <button
+  <div>
+    <label
       v-for="(option, index) in options"
       :key="index"
-      type="button"
       @click="updateValue(option)"
       :disabled="disabled"
-      class="text-start outline-none border-none"
+      class="text-start outline-none cursor-pointer border-none"
     >
-      <Field
-        v-slot="{ field }"
-        :rules="rules"
-        :name="name"
-        :value="modelValue"
-        type="radio"
-      >
+      <Field v-slot="{ field }" :name="name" :value="option.value" type="radio">
         <input
           type="radio"
-          v-bind="field"
           class="hidden"
+          v-bind="field"
           :name="name"
           :value="option.value"
         />
@@ -45,9 +38,8 @@
           </div>
         </slot>
       </Field>
-    </button>
-    <p v-if="error" class="text-sm mt-1 text-danger-500">{{ error }}</p>
-  </client-only>
+    </label>
+  </div>
 </template>
 <script setup>
 import Icon from "./icon.vue";
@@ -77,8 +69,6 @@ const props = defineProps({
     default: "primary",
   },
   modelValue: [String, Number, Boolean, Object],
-  rules: String,
-  error: String,
 });
 
 const colorClass = computed(() => {

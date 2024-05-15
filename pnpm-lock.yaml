@@ -14,6 +14,9 @@ importers:
       '@vee-validate/rules':
         specifier: ^4.12.8
         version: 4.12.8(vue@3.4.27)
+      '@vee-validate/zod':
+        specifier: ^4.12.8
+        version: 4.12.8(vue@3.4.27)
       class-variance-authority:
         specifier: ^0.7.0
         version: 0.7.0
@@ -29,6 +32,12 @@ importers:
       tailwindcss:
         specifier: ^3.4.3
         version: 3.4.3
+      vee-validate:
+        specifier: ^4.12.8
+        version: 4.12.8(vue@3.4.27)
+      zod:
+        specifier: ^3.23.8
+        version: 3.23.8
 
   apps/alike-admin:
     dependencies:
@@ -2314,6 +2323,16 @@ packages:
     resolution: {integrity: sha512-RisPzo+jGt0B0QTVhyZK5Pxb0Q6TESnS2rbR+CE3HRtJ+z0q5rkqkSIwvKrTKJFZpowJIoAHYS02jm5Pty5C3Q==}
     dependencies:
       vee-validate: 4.12.8(vue@3.4.27)
+    transitivePeerDependencies:
+      - vue
+    dev: false
+
+  /@vee-validate/zod@4.12.8(vue@3.4.27):
+    resolution: {integrity: sha512-P+G8grCc5iN7FMfvLzVWoGKxamBd0EYgN/hXBmzgbJV7B7FGnQADlUIsqt4jM+oGacbFW12B56zSORaVy3Owqg==}
+    dependencies:
+      type-fest: 4.18.2
+      vee-validate: 4.12.8(vue@3.4.27)
+      zod: 3.23.8
     transitivePeerDependencies:
       - vue
     dev: false
@@ -8598,4 +8617,8 @@ packages:
       archiver-utils: 5.0.2
       compress-commons: 6.0.2
       readable-stream: 4.5.2
+    dev: false
+
+  /zod@3.23.8:
+    resolution: {integrity: sha512-XBx9AXhXktjUqnepgTiE5flcKIYWi/rme0Eaj+5Y0lftuGBq+jyRu/md4WnuxqgP1ubdpNCsYEYPxrzVHD8d6g==}
     dev: false
