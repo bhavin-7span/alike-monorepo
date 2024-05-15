@@ -2,7 +2,7 @@
   <div class="relative">
     <button
       @click="isDropdown = !isDropdown"
-      class="rounded-full px-1 md:px-5 gap-1 w-full items-center flex text-start h-10 !border-0 md:!border capitalize hover:border-primary-500 hover:text-primary-500 font-bold"
+      class="nav-btn"
       :class="{
         ' border-black text-black': !isScrolled,
         ' border-black text-black': isScrolled,
@@ -10,6 +10,7 @@
       }"
     >
       <!-- <Icon name="language" class="text-lg md:hidden" /> -->
+      <AwIconAiLab class="h-5" />
       {{ language }}
     </button>
 
@@ -27,10 +28,6 @@
           class="py-4 px-10 hover:bg-grey-100 text-lg font-bold w-full transition-all flex items-center justify-between"
         >
           <span>{{ item.name }}</span>
-          <!-- <IconsChecked
-            v-if="language == item.code"
-            class="ms-5 font-bold"
-          ></IconsChecked> -->
         </button>
       </div>
       <div
@@ -61,10 +58,6 @@
               class="py-4 md:py-2.5 px-10 hover:bg-grey-100 w-full transition-all font-bold text-lg flex items-center justify-between"
             >
               <span>{{ item.name }}</span>
-              <!-- <IconsChecked
-                v-if="language == item.code"
-                class="ms-5 font-bold"
-              ></IconsChecked> -->
             </button>
           </div>
         </div>

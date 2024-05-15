@@ -11,11 +11,10 @@
         :class="
           hovering ? 'w-full md:w-1/4 md:brightness-50' : 'w-full md:w-3/4'
         "
-        @click="selectTraveller()"
       >
         <NuxtImg
           provider="directus"
-          :src="`/${data.cards[0].cards_id.media[0].directus_files_id}`"
+          :src="data.cards[0].cards_id.media[0].directus_files_id"
           :quality="90"
           class="h-full object-cover w-full"
           alt="Traveller Image"
@@ -34,19 +33,18 @@
         class="image2 relative transition-all duration-500 h-full"
         @mouseover="changeHover(true)"
         @mouseleave="changeHover(false)"
-        @click="selectCreator()"
         :class="hovering ? 'md:w-3/4' : 'md:w-1/4 brightness-50'"
       >
         <NuxtImg
           provider="directus"
-          :src="`/${data.cards[1].cards_id.media[0].directus_files_id}`"
+          :src="data.cards[1].cards_id.media[0].directus_files_id"
           :quality="90"
           class="h-full object-cover w-full"
           alt="Creator Image"
         />
         <div class="absolute inset-0 flex items-center justify-center">
           <h5
-            v-html="data.cards[1].cards_id.translations[0].title"
+            v-html="data?.cards[1]?.cards_id?.translations[0]?.title"
             class="text-white font-bold transition-all duration-200"
             :class="hovering ? 'text-8xl' : 'text-3xl'"
           />
@@ -62,7 +60,6 @@ const props = defineProps({
 });
 
 const hovering = ref(false);
-const isCreator = ref(false);
 
 const data = await useSectionData(props, {
   fields: [
@@ -71,6 +68,7 @@ const data = await useSectionData(props, {
     "cards.cards_id.primary_button.target",
     "cards.cards_id.media.directus_files_id",
   ],
+  ...getDeepLocaleFilter(["cards", "cards_id"]),
 });
 
 const changeHover = (data) => {
