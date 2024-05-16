@@ -25,6 +25,9 @@ import CheckboxOrange from "./icons/checkbox-orange.vue";
 import Checkbox from "./icons/checkbox.vue";
 import CheckMark from "./icons/check-mark.vue";
 
+//cards icons
+import Heart from "./icons/heart.vue";
+
 export default {
   ArrowDown,
   ArrowRight,
@@ -45,4 +48,5 @@ export default {
   Checkbox,
   CheckMark,
   Premium,
+  Heart,
 };
