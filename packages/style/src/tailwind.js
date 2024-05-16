@@ -3,6 +3,7 @@ const colors = require("tailwindcss/colors");
 const vepaarColors = require("./colors.json");
 
 module.exports = {
+  content: ["../../packages/**/**/*.{vue,js,json}"],
   theme: {
     extend: {
       fontSize: {
