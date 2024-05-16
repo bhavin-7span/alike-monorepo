@@ -2,7 +2,7 @@
   <AwSection
     name="offers"
     class="py-16 md:py-28"
-    _class="flex items-center justify-center flex-col"
+    _class="flex items-center justify-center flex-col overflow-hidden"
   >
     <AwHeading2
       class="text-center max-w-sm md:max-w-3xl"
@@ -21,7 +21,7 @@
         :modules="modules"
         class="mySwiper"
       >
-        <SwiperSlide class="flex gap-6" v-for="_ in 5">
+        <SwiperSlide class="flex gap-6" v-for="_ in 3">
           <HomeOffersCard
             v-for="(item, i) in detail.cards"
             :key="i"
