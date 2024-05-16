@@ -3,7 +3,7 @@
     <div>Biryani : {{ collectionName }} : {{ itemId }}</div>
 
     <div v-if="data">
-      {{ data }}
+      <!-- {{ data }} -->
     </div>
   </AwSection>
 </template>

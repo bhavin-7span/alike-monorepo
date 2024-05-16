@@ -1,3 +1,5 @@
+const env = useRuntimeConfig();
+
 // Default Props for all Sections
 export const defaultProps = () => {
   return {
@@ -12,11 +14,16 @@ export const defaultProps = () => {
   };
 };
 
+// Assets URL
+export const getAssetURL = (path) => {
+  return env.public?.directusAssetsUrl + path;
+};
+
 // Just pass the parent keys in array & it generates deep language filter.
 export const getDeepLocaleFilter = (keys) => {
   const { locale } = useI18n();
-  const filter = { deep: {} };
-  let currentFilter = filter.deep;
+  const filter = {};
+  let currentFilter = filter;
 
   keys.forEach((key, index) => {
     currentFilter[key] = {};

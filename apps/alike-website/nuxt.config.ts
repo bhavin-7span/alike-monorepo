@@ -2,6 +2,7 @@ import apollo from "./nuxt-config/apollo";
 import env from "./env";
 
 const directusUrl = "https://craft.alike.host";
+const directusAssetsUrl = "https://craft.alike.host/assets/";
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
@@ -14,10 +15,17 @@ export default defineNuxtConfig({
       autoprefixer: {},
     },
   },
-  modules: ["@nuxtjs/apollo", "@nuxtjs/i18n", "@nuxt/image", "nuxt-directus"],
+  modules: [
+    "@nuxtjs/apollo",
+    "@nuxtjs/i18n",
+    "@nuxt/image",
+    "nuxt-directus",
+    "nuxt-icon",
+  ],
   runtimeConfig: {
     public: {
       directusUrl: directusUrl,
+      directusAssetsUrl: directusAssetsUrl,
       ...env,
     },
   },
@@ -26,7 +34,7 @@ export default defineNuxtConfig({
       baseURL: "https://alike-asset.b-cdn.net/vue-images",
     },
     directus: {
-      baseURL: "https://craft.alike.host/assets/",
+      baseURL: directusAssetsUrl,
     },
   },
   directus: {

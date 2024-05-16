@@ -66,7 +66,6 @@
   </div>
 </template>
 <script setup>
-const env = useRuntimeConfig();
 //--------------------------------------------------props
 defineProps({
   isScrolled: Boolean,

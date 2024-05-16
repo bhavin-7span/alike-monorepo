@@ -64,11 +64,13 @@ const hovering = ref(false);
 const data = await useSectionData(props, {
   fields: [
     "cards.cards_id.translations.title",
-    "cards.cards_id.primary_button.page.path",
-    "cards.cards_id.primary_button.target",
     "cards.cards_id.media.directus_files_id",
+    "cards.cards_id.primary_button.target",
+    "cards.cards_id.primary_button.page.path",
   ],
-  ...getDeepLocaleFilter(["cards", "cards_id"]),
+  deep: {
+    ...getDeepLocaleFilter(["cards", "cards_id"]),
+  },
 });
 
 const changeHover = (data) => {
