@@ -1,6 +1,6 @@
 <template>
   <section
-    class="flex items-center justify-center"
+    class="fafda-section flex items-center justify-center"
     v-if="data?.cards && data.cards.length == 2"
   >
     <div class="flex h-[720px] overflow-hidden cursor-pointer w-full">

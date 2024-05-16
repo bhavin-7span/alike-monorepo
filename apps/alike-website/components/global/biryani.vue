@@ -1,9 +1,12 @@
 <template>
-  <AwSection>
-    <div>Biryani : {{ collectionName }} : {{ itemId }}</div>
-
-    <div v-if="data">
-      <!-- {{ data }} -->
+  <AwSection
+    name="biryani-section"
+    class="py-16 md:py-28"
+    _class="flex items-center justify-center flex-col"
+  >
+    <AwHeading2 class="text-center max-w-sm md:max-w-xl"> Biryani </AwHeading2>
+    <div class="mt-6 md:mt-14 text-center">
+      {{ detail }}
     </div>
   </AwSection>
 </template>
@@ -12,7 +15,11 @@ const props = defineProps({
   ...defaultProps(),
 });
 
-const data = await useSectionData(props, {
+const detail = await useSectionData(props, {
   fields: ["*.*"],
+  deep: {
+    // ...getDeepLocaleFilter(["metadata"]),
+    // ...getDeepLocaleFilter(["cards,cards_id"]),
+  },
 });
 </script>
