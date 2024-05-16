@@ -5,6 +5,7 @@ const directusUrl = "https://craft.alike.host";
 
 export default defineNuxtConfig({
   devtools: { enabled: false },
+  ssr: false,
   css: ["~/assets/css/style.css"],
   plugins: [{ src: "~/plugins/components.js" }, { src: "~/plugins/server.js" }],
   postcss: {
@@ -24,6 +25,9 @@ export default defineNuxtConfig({
     bunny: {
       baseURL: "https://alike-asset.b-cdn.net/vue-images",
     },
+    directus: {
+      baseURL: "https://craft.alike.host/assets/",
+    },
   },
   directus: {
     url: directusUrl,
@@ -34,24 +38,36 @@ export default defineNuxtConfig({
     strategy: "no_prefix",
     locales: [
       {
-        code: "en",
+        code: "en-US",
         name: "English",
         dir: "ltr",
         file: "en.js",
       },
       {
-        code: "ar",
+        code: "ar-AR",
         name: "Arabic",
         dir: "rtl",
         file: "ar.js",
       },
+      {
+        code: "zh-CN",
+        name: "Mandarin",
+        dir: "ltr",
+        file: "zh.js",
+      },
+      {
+        code: "ja-JP",
+        name: "Japanese",
+        dir: "rtl",
+        file: "ja.js",
+      },
     ],
-    defaultLocale: "en",
+    defaultLocale: "en-US",
     detectBrowserLanguage: {
       useCookie: true,
       cookieDomain: env.COOKIE_HOST || "",
       cookieKey: "aw_locale",
-      redirectOn: "root", // recommended
+      redirectOn: "root",
     },
   },
   apollo,

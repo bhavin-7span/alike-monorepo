@@ -21,7 +21,7 @@ const props = defineProps({
     default: false,
     type: Boolean,
   },
-  activeMenu: String,
+  activeMenu: [String, Boolean],
 });
 
 const emit = defineEmits(["closeMenu"]);

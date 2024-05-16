@@ -3,7 +3,7 @@
     <div class="relative py-4 bg-white z-40">
       <div class="container mx-auto">
         <div class="flex items-center justify-between">
-          <a href="">
+          <NuxtLink to="/">
             <NuxtImg
               provider="bunny"
               src="/alike-logo-dark.png"
@@ -11,7 +11,7 @@
               height="40"
               :quality="90"
             />
-          </a>
+          </NuxtLink>
 
           <div class="flex font-bold gap-14">
             <template v-for="(link, index) in navLinks" :key="index">
@@ -53,10 +53,7 @@
               <p>INR</p>
             </button>
 
-            <button class="nav-btn">
-              <AwIconAiLab class="h-5" />
-              <p>IN</p>
-            </button>
+            <LangSwitch />
           </div>
         </div>
       </div>

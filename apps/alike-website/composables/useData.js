@@ -6,7 +6,16 @@ export const useSectionData = async (props, params) => {
     return getItemById({
       collection: props.collectionName,
       id: props.itemId,
-      params,
+      params: {
+        fields: params?.fields,
+        filter: {
+          ...params?.filter,
+        },
+        deep: {
+          ...params?.deep,
+        },
+      },
+      // Custom Configs will be place above
     });
   })
     .then(({ data: { value } }) => {
