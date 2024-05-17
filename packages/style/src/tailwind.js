@@ -8,12 +8,12 @@ module.exports = {
     extend: {
       fontSize: {
         xs: ["12px", "16px"],
-        sm: ["14px", "18px"],
+        sm: ["14px", "20px"],
         base: ["16px", "24px"],
         lg: ["20px", "28px"],
         xl: ["24px", "32px"],
         "3xl": ["28px", "32px"],
-        "4xl": ["32px", "38px"],
+        "4xl": ["32px", "40px"],
         "5xl": ["36px", "42px"],
         "6xl": ["48px", "56px"],
         "7xl": ["60px", "68px"],

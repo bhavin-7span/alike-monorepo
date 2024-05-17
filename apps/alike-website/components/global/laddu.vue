@@ -21,7 +21,7 @@
         :modules="modules"
         class="mySwiper"
       >
-        <SwiperSlide class="flex gap-6" v-for="_ in 3">
+        <SwiperSlide class="flex gap-6" v-for="_ in 3" :key="_">
           <HomeOffersCard
             v-for="(item, i) in detail.cards"
             :key="i"
