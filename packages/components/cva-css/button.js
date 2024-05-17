@@ -2,7 +2,7 @@ import { cva } from "class-variance-authority";
 
 export const button = cva(
   // default class will applied on every button
-  ["font-medium group  rounded-full w-fit flex items-center justify-center"],
+  ["font-medium group  rounded-full  flex items-center justify-center"],
   {
     variants: {
       color: {
@@ -37,7 +37,7 @@ export const button = cva(
         muted: [""],
       },
       shape: {
-        rounded: [""],
+        rounded: ["w-fit"],
         circler: [""],
       },
     },
@@ -47,13 +47,13 @@ export const button = cva(
         color: ["primary", "secondary", "grey", "black"],
         shape: "circle",
         size: "sm",
-        class: "p-2",
+        class: "p-0 w-12",
       },
       {
         color: ["primary", "secondary", "grey", "black"],
         shape: "circle",
         size: "md",
-        class: "p-4",
+        class: "p-0 w-14",
       },
 
       // Adding click active effect for all button variants
