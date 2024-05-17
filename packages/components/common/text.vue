@@ -16,7 +16,7 @@ const props = defineProps({
         !["h1", "h2", "h3", "h4", "h5", "h6", "p", "span"].includes(propsValue)
       ) {
         throw new Error(
-          "error in text component | prop type as is not valid, invalid value must be any one from 'h1, h2, h3, h4, h5, h6, p, span'"
+          "error in text component | prop type as is not valid, value must be any one from 'h1, h2, h3, h4, h5, h6, p, span'"
         );
       }
       return true;

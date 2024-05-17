@@ -4,11 +4,14 @@
     class="py-16 md:py-28"
     _class="flex items-center justify-center flex-col overflow-hidden"
   >
-    <AwHeading2
-      class="text-center max-w-sm md:max-w-3xl"
-      v-html="detail.metadata.translations[0].title"
+    <RichText
+      class="text-center max-w-3xl"
+      as="h2"
+      size="7xl"
+      weight="bold"
+      :data="detail.metadata.translations[0].title"
     >
-    </AwHeading2>
+    </RichText>
 
     <div class="mt-6 md:mt-14 relative">
       <Swiper
@@ -21,17 +24,17 @@
         :modules="modules"
         class="mySwiper"
       >
-        <SwiperSlide class="flex gap-6" v-for="_ in 3" :key="_">
-          <HomeOffersCard
+        <!-- <SwiperSlide class="flex gap-6" v-for="_ in 3" :key="_">
+          <BundleCard
             v-for="(item, i) in detail.cards"
             :key="i"
-            :icon="item?.cards_id?.primary_button?.icon?.value"
-            :link="item?.cards_id?.primary_button?.page?.path"
-            :media-id="item?.cards_id?.media[0]?.directus_files_id"
-            :title="item?.cards_id?.translations[0]?.title"
-            :description="item?.cards_id?.translations[0]?.description"
+            :icon="item?.cards_id.primary_button?.icon?.value"
+            :to="item?.cards_id.primary_button.page?.path"
+            :img="getAssetURL(item.cards_id.media[0]?.directus_files_id)"
+            :title="item?.cards_id.translations[0]?.title"
+            :description="item.cards_id.translations[0]?.description"
           />
-        </SwiperSlide>
+        </SwiperSlide> -->
       </Swiper>
       <div class="paginationEl flex items-center justify-center mt-6"></div>
     </div>
@@ -42,6 +45,7 @@ import { Swiper, SwiperSlide } from "swiper/vue";
 import { Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/pagination";
+import BundleCard from "components/cards/bundle.vue";
 
 const modules = [Pagination, Autoplay];
 
@@ -63,6 +67,8 @@ const detail = await useSectionData(props, {
     ...getDeepLocaleFilter(["cards", "cards_id"]),
   },
 });
+
+console.log("the detail is:", detail);
 </script>
 
 <style lang="scss">

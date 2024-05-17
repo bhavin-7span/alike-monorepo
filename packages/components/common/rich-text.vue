@@ -9,11 +9,11 @@ import { computed } from "vue";
 const props = defineProps({
   as: {
     type: String,
-    default: "p",
+    default: "h1",
     validator: (propsValue) => {
       if (!["h1", "h2", "h3", "h4", "h5", "h6"].includes(propsValue)) {
         throw new Error(
-          "error in text component | prop type as is not valid, invalid value must be any one from 'h1, h2, h3, h4, h5, h6'"
+          "error in text component | prop type as is not valid, value must be any one from 'h1, h2, h3, h4, h5, h6'"
         );
       }
       return true;
