@@ -1,5 +1,8 @@
 <template>
-  <h2 v-html="data" class="text-4xl md:text-7xl font-bold" />
+  <div
+    v-html="data"
+    class="text-4xl text-center max-w-sm md:max-w-3xl md:text-7xl font-bold"
+  />
 </template>
 <script setup>
 const props = defineProps({

@@ -1,23 +1,20 @@
 <template>
-  <div class="h-72 relative overflow-hidden rounded-sm">
+  <div class="h-fit w-fit relative overflow-hidden rounded-md">
     <div class="bundle-image">
-      <img class="h-full w-full object-cover object-center" :src="img" />
+      <img class="h-full object-cover object-center" :src="img" />
     </div>
     <div
-      class="absolute p-8 bottom-0 flex flex-col gap-4 cursor-pointer justify-end h-full group transition-all duration-500 hover:bg-black"
+      class="absolute p-8 w-full bottom-0 flex flex-col gap-4 cursor-pointer justify-end h-full group transition-all duration-500 hover:bg-black"
     >
-      <h3 class="text-3xl font-bold text-white">
-        {{ title }}
-      </h3>
-      <p
+      <div class="text-3xl font-bold text-white" v-html="title" />
+      <div
         class="hidden text-lg text-grey-400 group-hover:block transition-all duration-700 line-clamp-2 text-white"
-      >
-        {{ description }}
-      </p>
+        v-html="description"
+      />
       <Button
         shape="circle"
         size="sm"
-        :to="link"
+        :to="to"
         :icon="icon"
         class="hidden transition-transform duration-700 group-hover:flex"
       />
@@ -31,7 +28,7 @@ const props = defineProps({
   icon: { type: String, default: "AwIconArrowRight" },
   title: String,
   description: String,
-  link: String,
+  to: String,
   img: String,
 });
 </script>
@@ -39,6 +36,7 @@ const props = defineProps({
 .bundle-image::after {
   content: "";
   position: absolute;
+
   top: 0;
   left: 0;
   right: 0;

@@ -2,9 +2,9 @@ import AwSection from "components/common/section.vue";
 
 // typography
 import AwHeading2 from "components/common/aw-heading2.vue";
-import SectionTitle from "components/common/section-title.vue";
-import Text from "components/common/text.vue";
-import RichText from "components/common/rich-text.vue";
+import SectionTitle from "components/common/section-title.vue"; // for each title of section in page
+import Text from "components/common/text.vue"; // X don't use it for now
+import RichText from "components/common/rich-text.vue"; // X don't use it for now
 
 import Button from "components/button.vue";
 import FormInput from "components/input.vue";

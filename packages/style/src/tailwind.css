@@ -32,3 +32,18 @@
 *::-webkit-scrollbar-track {
   background: rgba(255, 255, 255, 0.1);
 }
+
+/* Swiper slider CSS */
+.swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.swiper-slide {
+  text-align: center;
+
+  /* Center slide text vertically */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
