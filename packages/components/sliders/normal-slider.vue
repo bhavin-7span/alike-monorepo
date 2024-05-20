@@ -7,6 +7,7 @@
       :autoplay="true"
       :pagination="{
         dynamicBullets: true,
+        clickable: true,
       }"
       :modules="modules"
       class="mySwiper !pb-10"
@@ -54,6 +55,7 @@ const modules = [Keyboard, Autoplay, Pagination, Navigation];
   .swiper {
     position: relative;
   }
+
   .swiper-button-next {
     @apply hidden;
   }
@@ -64,6 +66,9 @@ const modules = [Keyboard, Autoplay, Pagination, Navigation];
   .swiper-pagination {
     position: absolute;
     bottom: 0px !important;
+  }
+  .swiper-pagination-bullet-active-main {
+    @apply bg-grey-300;
   }
 }
 </style>
