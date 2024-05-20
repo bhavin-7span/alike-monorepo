@@ -1,5 +1,3 @@
-const env = useRuntimeConfig();
-
 // Default Props for all Sections
 export const defaultProps = () => {
   return {
@@ -16,6 +14,7 @@ export const defaultProps = () => {
 
 // Assets URL
 export const getAssetURL = (path) => {
+  const env = useRuntimeConfig();
   return env.public?.directusAssetsUrl + path;
 };
 

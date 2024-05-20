@@ -44,8 +44,6 @@ const detail = await useSectionData(props, {
     ...getDeepLocaleFilter(["cards", "cards_id"]),
   },
 });
-
-console.log("the detail is", detail);
 </script>
 
 <style lang="scss"></style>
