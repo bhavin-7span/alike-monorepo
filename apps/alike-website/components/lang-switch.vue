@@ -9,7 +9,6 @@
         'active-dropdown': isDropdown,
       }"
     >
-      <!-- <Icon name="language" class="text-lg md:hidden" /> -->
       <AwIconAiLab class="h-5" />
       {{ language }}
     </button>
@@ -45,7 +44,6 @@
               class="bg-gray-200 p-1 rounded-full"
             >
               X
-              <!-- <Icon name="close" /> -->
             </button>
           </div>
           <div class="py-6">
@@ -66,16 +64,13 @@
   </div>
 </template>
 <script setup>
-//--------------------------------------------------props
 defineProps({
   isScrolled: Boolean,
 });
 
-//--------------------------------------------------stats
 const isDropdown = ref(false);
 const { locales, locale } = useI18n();
 
-//--------------------------------------------------life-cycle
 const language = computed({
   get: () => locale.value,
   set: (value) => {
@@ -85,7 +80,6 @@ const language = computed({
   },
 });
 
-//---------------------------------------------------methods
 const hideDropDown = (isShow) => {
   isDropdown.value = false;
 };

@@ -48,11 +48,6 @@
               <p>AI Lab</p>
             </button>
 
-            <!-- <button class="nav-btn">
-              <AwIconCurrencyInr class="h-5" />
-              <p>INR</p>
-            </button> -->
-
             <CurrencySwitch />
             <LangSwitch />
           </div>

@@ -15,7 +15,6 @@ export const useCurrencyStore = defineStore("currency", {
   },
   actions: {
     async setCurrentCurrency(abbreviation) {
-      console.log("abbreviation =>", abbreviation);
       const selectedCurrency = this.allCurrencies.find(
         (data) => data?.abbreviation === abbreviation
       );

@@ -78,11 +78,10 @@ defineProps({
 const isDropdown = ref(false);
 const currencies = currencyStore.getAllCurrencies;
 const currentCurrency = computed(() => currencyStore.getCurrentCurrency);
-console.log("currencies", currencies);
+
 const currency = computed({
   get: () => currentCurrency.value,
   set: (value) => {
-    console.log("Changing Value FOr :", value);
     currencyStore.setCurrentCurrency(value);
     document.cookie = `aw_currency=` + value + `;path=/;`;
     isDropdown.value = false;
