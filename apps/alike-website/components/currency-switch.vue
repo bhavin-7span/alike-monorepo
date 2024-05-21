@@ -9,9 +9,7 @@
         'active-dropdown': isDropdown,
       }"
     >
-      <!-- <Icon name="language" class="text-lg md:hidden" /> -->
-      <AwIconAiLab class="h-5" />
-      {{ language }}
+      {{ currency.symbol }} {{ currency.abbreviation }}
     </button>
 
     <div v-if="isDropdown">
@@ -20,11 +18,13 @@
         class="lang-dropdown w-[300px] py-6 hidden md:block absolute top-14 text-black bg-white rounded -right-28 space-y-1 box-shadow"
       >
         <button
-          v-for="item in locales"
+          v-for="item in currencies"
           :key="item"
-          :value="item.code"
-          :class="language == item.code ? ' text-black bg-grey-100' : ''"
-          @click="language = item.code"
+          :value="item.abbreviation"
+          :class="
+            currency == item.abbreviation ? ' text-black bg-grey-100' : ''
+          "
+          @click="currency = item.abbreviation"
           class="py-4 px-10 hover:bg-grey-100 text-lg font-bold w-full transition-all flex items-center justify-between"
         >
           <span>{{ item.name }}</span>
@@ -39,7 +39,7 @@
           <div
             class="flex items-center justify-between border-b border-grey-300 p-4 text-grey-900 font-bold text-2xl"
           >
-            <h5 class="font-bold">{{ language }}</h5>
+            <h5 class="font-bold">{{ currency }}</h5>
             <button
               @click="hideDropDown()"
               class="bg-gray-200 p-1 rounded-full"
@@ -50,11 +50,13 @@
           </div>
           <div class="py-6">
             <button
-              v-for="item in locales"
+              v-for="item in currencies"
               :key="item"
-              :value="item.code"
-              :class="language == item.code ? ' text-black bg-grey-100' : ''"
-              @click="language = item.code"
+              :value="item.abbreviation"
+              :class="
+                currency == item.abbreviation ? ' text-black bg-grey-100' : ''
+              "
+              @click="currency = item.abbreviation"
               class="py-4 md:py-2.5 px-10 hover:bg-grey-100 w-full transition-all font-bold text-lg flex items-center justify-between"
             >
               <span>{{ item.name }}</span>
@@ -66,26 +68,27 @@
   </div>
 </template>
 <script setup>
-//--------------------------------------------------props
+import { useCurrencyStore } from "@/store/currency";
+const currencyStore = useCurrencyStore();
+
 defineProps({
   isScrolled: Boolean,
 });
 
-//--------------------------------------------------stats
 const isDropdown = ref(false);
-const { locales, locale } = useI18n();
-
-//--------------------------------------------------life-cycle
-const language = computed({
-  get: () => locale.value,
+const currencies = currencyStore.getAllCurrencies;
+const currentCurrency = computed(() => currencyStore.getCurrentCurrency);
+console.log("currencies", currencies);
+const currency = computed({
+  get: () => currentCurrency.value,
   set: (value) => {
-    document.cookie = `aw_locale=` + value + `;path=/;`;
+    console.log("Changing Value FOr :", value);
+    currencyStore.setCurrentCurrency(value);
+    document.cookie = `aw_currency=` + value + `;path=/;`;
     isDropdown.value = false;
-    location.reload();
   },
 });
 
-//---------------------------------------------------methods
 const hideDropDown = (isShow) => {
   isDropdown.value = false;
 };
