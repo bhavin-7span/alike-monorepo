@@ -41,43 +41,5 @@ export default defineNuxtConfig({
   directus: {
     url: directusUrl,
   },
-  i18n: {
-    lazy: true,
-    langDir: "locales",
-    strategy: "no_prefix",
-    locales: [
-      {
-        code: "en-US",
-        name: "English",
-        dir: "ltr",
-        file: "en-US.js",
-      },
-      {
-        code: "ar-AR",
-        name: "Arabic",
-        dir: "rtl",
-        file: "ar-AR.js",
-      },
-      {
-        code: "zh-CN",
-        name: "Mandarin",
-        dir: "ltr",
-        file: "zh-CN.js",
-      },
-      {
-        code: "ja-JP",
-        name: "Japanese",
-        dir: "rtl",
-        file: "ja-JP.js",
-      },
-    ],
-    defaultLocale: "en-US",
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieDomain: env.COOKIE_HOST || "",
-      cookieKey: "aw_locale",
-      redirectOn: "root",
-    },
-  },
   apollo,
 });

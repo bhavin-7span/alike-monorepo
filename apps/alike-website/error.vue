@@ -7,8 +7,10 @@ const props = defineProps({
 </script>
 
 <template>
-  <section class="flex items-center justify-center flex-col">
-    <h1 class="text-2xl">Message : {{ error?.message }}</h1>
-    <h2 class="textxl">Stack : {{ error?.stack }}</h2>
+  <section class="flex items-center justify-center flex-col space-y-4 m-8">
+    <h1 class="text-4xl text-center">Message : {{ error?.message }}</h1>
+    <div class="text-xl w-full overflow-x-scroll">
+      <div v-html="error?.stack"></div>
+    </div>
   </section>
 </template>
