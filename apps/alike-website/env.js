@@ -1,4 +1,4 @@
-module.exports = {
+const env = {
   development: {
     COOKIE_HOST: "",
     // GRAPHQL: 'https://beta.alike.io/graphql',
@@ -38,3 +38,5 @@ module.exports = {
     SUMMER_DUBAI_GOOGLE_TAG_MANAGER_KEY: "DC-5481501",
   },
 };
+
+export default env[process?.env?.VERCEL_ENV || "development"];

@@ -7,8 +7,8 @@ const props = defineProps({
 </script>
 
 <template>
-  <div>
-    <h1>{{ error }}</h1>
-    <NuxtLink to="/">Go back home</NuxtLink>
-  </div>
+  <section class="flex items-center justify-center flex-col">
+    <h1 class="text-2xl">Message : {{ error?.message }}</h1>
+    <h2 class="textxl">Stack : {{ error?.stack }}</h2>
+  </section>
 </template>
