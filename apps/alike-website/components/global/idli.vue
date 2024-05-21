@@ -3,6 +3,7 @@
     name="idli-section"
     class="py-16 md:py-28"
     _class="flex items-center justify-center flex-col"
+    v-if="detail"
   >
     <AwHeading2 class="text-center max-w-sm md:max-w-xl"> Idli </AwHeading2>
     <div class="mt-6 md:mt-14 text-center">

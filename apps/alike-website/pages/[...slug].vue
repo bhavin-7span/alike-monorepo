@@ -1,7 +1,5 @@
 <template>
-  <div class="slug-page">
-    <Sections :items="sections" :page-id="id" />
-  </div>
+  <Sections :items="sections" :page-id="id" v-if="sections && id" />
 </template>
 
 <script setup>
